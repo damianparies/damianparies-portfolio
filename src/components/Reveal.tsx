@@ -1,13 +1,22 @@
 import { useEffect, useRef, useState, type ReactNode, type CSSProperties } from "react";
 
+type Variant = "up" | "fade" | "left" | "right" | "scale" | "blur";
 
 type Props = {
   children: ReactNode;
   delay?: number;
   className?: string;
-  as?: "div" | "section" | "li" | "ul" | "article" | "header" | "footer" | "p" | "blockquote";
+  variant?: Variant;
+  as?: "div" | "section" | "li" | "ul" | "article" | "header" | "footer" | "p" | "blockquote" | "span";
 };
-export function Reveal({ children, delay = 0, className = "", as: Tag = "div" }: Props) {
+
+export function Reveal({
+  children,
+  delay = 0,
+  className = "",
+  variant = "up",
+  as: Tag = "div",
+}: Props) {
   const ref = useRef<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);
 
@@ -39,7 +48,7 @@ export function Reveal({ children, delay = 0, className = "", as: Tag = "div" }:
     <Tag
       ref={ref as never}
       style={style}
-      className={`reveal ${visible ? "is-visible" : ""} ${className}`}
+      className={`reveal reveal-${variant} ${visible ? "is-visible" : ""} ${className}`}
     >
       {children}
     </Tag>

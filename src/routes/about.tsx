@@ -101,7 +101,8 @@ function AboutPage() {
             <Reveal
               as="li"
               key={t.year}
-              delay={i * 80}
+              variant={i % 2 === 0 ? "left" : "right"}
+              delay={i * 100}
               className="grid grid-cols-1 md:grid-cols-[140px_1fr] gap-4 md:gap-12 py-8 border-t border-rule"
             >
               <span className="text-ink-soft text-sm">{t.year}</span>

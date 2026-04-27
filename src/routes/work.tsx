@@ -70,7 +70,7 @@ function WorkPage() {
         </h2>
         <div className="grid md:grid-cols-2 gap-px bg-rule">
           {services.map((s, i) => (
-            <Reveal key={s.title} delay={i * 80} className="bg-background p-8 md:p-10">
+            <Reveal key={s.title} variant="scale" delay={i * 100} className="bg-background p-8 md:p-10 lift">
               <h3 className="font-serif text-2xl md:text-3xl">{s.title}</h3>
               <p className="mt-3 text-ink-soft text-pretty leading-relaxed">
                 {s.body}
@@ -89,7 +89,8 @@ function WorkPage() {
             <Reveal
               as="li"
               key={c.name}
-              delay={i * 60}
+              variant="left"
+              delay={i * 80}
               className="grid grid-cols-[1fr_auto] md:grid-cols-[200px_1fr_auto] gap-4 md:gap-8 items-baseline py-6 border-t border-rule"
             >
               <span className="font-serif text-2xl md:text-3xl">{c.name}</span>

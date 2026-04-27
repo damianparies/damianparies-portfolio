@@ -85,6 +85,7 @@ function ProjectsPage() {
           <Reveal
             as="article"
             key={p.name}
+            variant={i % 2 === 0 ? "left" : "right"}
             className="grid md:grid-cols-[1fr_1.2fr] gap-8 md:gap-12 pt-12 border-t border-rule"
           >
             {/* Visual placeholder */}

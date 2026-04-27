@@ -95,7 +95,7 @@ function Index() {
       <section className="border-y border-rule bg-surface/60 backdrop-blur-sm">
         <div className="container-page grid grid-cols-2 md:grid-cols-4 divide-x divide-rule">
           {stats.map((s, i) => (
-            <Reveal key={s.label} delay={i * 80} className="py-10 px-4 first:pl-0 text-center md:text-left">
+            <Reveal key={s.label} variant="scale" delay={i * 100} className="py-10 px-4 first:pl-0 text-center md:text-left">
               <p className="font-serif text-4xl md:text-5xl">{s.value}</p>
               <p className="mt-2 text-xs uppercase tracking-widest text-ink-soft">
                 {s.label}
@@ -121,7 +121,7 @@ function Index() {
 
         <ul>
           {featured.map((item, i) => (
-            <Reveal as="li" key={i} delay={i * 100}>
+            <Reveal as="li" key={i} variant="left" delay={i * 120}>
               <Link
                 to={item.href}
                 className="group grid grid-cols-[auto_1fr_auto] md:grid-cols-[80px_1fr_1fr_auto] gap-4 md:gap-8 items-center py-6 border-t border-rule transition-colors hover:bg-surface px-2 -mx-2 rounded-md"
@@ -139,7 +139,7 @@ function Index() {
 
       {/* QUOTE / PHILOSOPHY */}
       <section className="container-page py-20 md:py-32 border-t border-rule">
-        <Reveal as="blockquote" className="max-w-4xl">
+        <Reveal as="blockquote" variant="blur" className="max-w-4xl">
           <p className="font-serif text-3xl md:text-5xl leading-tight text-balance">
             "Distribution is a craft. I treat every page, post, and product
             launch like a small <em className="text-accent not-italic">compounding bet</em> —
