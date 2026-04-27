@@ -2,13 +2,13 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
-const links = [
+const links: { to: "/" | "/work" | "/projects" | "/about" | "/contact"; label: string; exact?: boolean }[] = [
   { to: "/", label: "Index", exact: true },
   { to: "/work", label: "Work" },
   { to: "/projects", label: "Projects" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
-] as const;
+];
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
