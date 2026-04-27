@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { TrendingUp, Users, DollarSign } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
@@ -81,7 +82,8 @@ function ProjectsPage() {
 
       <section className="container-page pb-24 space-y-16 md:space-y-24">
         {projects.map((p, i) => (
-          <article
+          <Reveal
+            as="article"
             key={p.name}
             className="grid md:grid-cols-[1fr_1.2fr] gap-8 md:gap-12 pt-12 border-t border-rule"
           >
@@ -122,7 +124,7 @@ function ProjectsPage() {
                 ))}
               </div>
             </div>
-          </article>
+          </Reveal>
         ))}
       </section>
     </div>
