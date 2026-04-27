@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/work")({
   head: () => ({
@@ -68,13 +69,13 @@ function WorkPage() {
           What I do
         </h2>
         <div className="grid md:grid-cols-2 gap-px bg-rule">
-          {services.map((s) => (
-            <div key={s.title} className="bg-background p-8 md:p-10">
+          {services.map((s, i) => (
+            <Reveal key={s.title} delay={i * 80} className="bg-background p-8 md:p-10">
               <h3 className="font-serif text-2xl md:text-3xl">{s.title}</h3>
               <p className="mt-3 text-ink-soft text-pretty leading-relaxed">
                 {s.body}
               </p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -84,9 +85,11 @@ function WorkPage() {
           Selected clients
         </h2>
         <ul>
-          {clients.map((c) => (
-            <li
+          {clients.map((c, i) => (
+            <Reveal
+              as="li"
               key={c.name}
+              delay={i * 60}
               className="grid grid-cols-[1fr_auto] md:grid-cols-[200px_1fr_auto] gap-4 md:gap-8 items-baseline py-6 border-t border-rule"
             >
               <span className="font-serif text-2xl md:text-3xl">{c.name}</span>
@@ -95,7 +98,7 @@ function WorkPage() {
               <span className="md:hidden col-span-2 text-ink-soft text-sm -mt-3">
                 {c.scope}
               </span>
-            </li>
+            </Reveal>
           ))}
           <li className="border-t border-rule" />
         </ul>

@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -96,9 +97,11 @@ function AboutPage() {
       <section className="container-page py-20 border-t border-rule">
         <h2 className="text-3xl md:text-4xl mb-12">A short timeline.</h2>
         <ol className="space-y-0">
-          {timeline.map((t) => (
-            <li
+          {timeline.map((t, i) => (
+            <Reveal
+              as="li"
               key={t.year}
+              delay={i * 80}
               className="grid grid-cols-1 md:grid-cols-[140px_1fr] gap-4 md:gap-12 py-8 border-t border-rule"
             >
               <span className="text-ink-soft text-sm">{t.year}</span>
@@ -106,7 +109,7 @@ function AboutPage() {
                 <h3 className="font-serif text-2xl">{t.title}</h3>
                 <p className="mt-2 text-ink-soft max-w-2xl">{t.body}</p>
               </div>
-            </li>
+            </Reveal>
           ))}
           <li className="border-t border-rule" />
         </ol>
