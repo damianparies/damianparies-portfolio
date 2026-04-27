@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -91,22 +92,22 @@ function Index() {
       </section>
 
       {/* STATS */}
-      <section className="border-y border-rule bg-surface">
+      <section className="border-y border-rule bg-surface/60 backdrop-blur-sm">
         <div className="container-page grid grid-cols-2 md:grid-cols-4 divide-x divide-rule">
-          {stats.map((s) => (
-            <div key={s.label} className="py-10 px-4 first:pl-0 text-center md:text-left">
+          {stats.map((s, i) => (
+            <Reveal key={s.label} delay={i * 80} className="py-10 px-4 first:pl-0 text-center md:text-left">
               <p className="font-serif text-4xl md:text-5xl">{s.value}</p>
               <p className="mt-2 text-xs uppercase tracking-widest text-ink-soft">
                 {s.label}
               </p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>
 
       {/* FEATURED INDEX */}
       <section className="container-page py-20 md:py-32">
-        <div className="flex items-end justify-between mb-10">
+        <Reveal className="flex items-end justify-between mb-10">
           <div>
             <p className="text-sm uppercase tracking-widest text-ink-soft">
               Selected
@@ -116,11 +117,11 @@ function Index() {
           <Link to="/projects" className="hidden md:inline-flex link-underline text-sm">
             View all →
           </Link>
-        </div>
+        </Reveal>
 
         <ul>
           {featured.map((item, i) => (
-            <li key={i}>
+            <Reveal as="li" key={i} delay={i * 100}>
               <Link
                 to={item.href}
                 className="group grid grid-cols-[auto_1fr_auto] md:grid-cols-[80px_1fr_1fr_auto] gap-4 md:gap-8 items-center py-6 border-t border-rule transition-colors hover:bg-surface px-2 -mx-2 rounded-md"
@@ -130,7 +131,7 @@ function Index() {
                 <span className="hidden md:block text-ink-soft text-sm">{item.role}</span>
                 <ArrowUpRight className="size-5 text-ink-soft transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
               </Link>
-            </li>
+            </Reveal>
           ))}
           <li className="border-t border-rule" />
         </ul>
@@ -138,7 +139,7 @@ function Index() {
 
       {/* QUOTE / PHILOSOPHY */}
       <section className="container-page py-20 md:py-32 border-t border-rule">
-        <blockquote className="max-w-4xl">
+        <Reveal as="blockquote" className="max-w-4xl">
           <p className="font-serif text-3xl md:text-5xl leading-tight text-balance">
             "Distribution is a craft. I treat every page, post, and product
             launch like a small <em className="text-accent not-italic">compounding bet</em> —
@@ -147,7 +148,7 @@ function Index() {
           <footer className="mt-8 text-sm text-ink-soft uppercase tracking-widest">
             — Damian Paries
           </footer>
-        </blockquote>
+        </Reveal>
       </section>
     </div>
   );
