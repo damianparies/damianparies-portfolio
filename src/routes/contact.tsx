@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
-import { ArrowUpRight, Mail } from "lucide-react";
+import { Mail, Phone, Linkedin, Instagram, ArrowUpRight } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -9,7 +9,7 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Get in touch with Damian Paries for partnerships, growth work, or just to say hello.",
+          "Get in touch with Damian Paries — email, phone, LinkedIn, or Instagram.",
       },
       { property: "og:title", content: "Contact — Damian Paries" },
       {
@@ -21,124 +21,105 @@ export const Route = createFileRoute("/contact")({
   component: ContactPage,
 });
 
+const channels = [
+  {
+    label: "Email",
+    value: "damianparies@gmail.com",
+    href: "mailto:damianparies@gmail.com",
+    icon: Mail,
+    note: "Best for proposals, briefs, and longer notes.",
+  },
+  {
+    label: "Phone",
+    value: "+27 66 207 7888",
+    href: "tel:+27662077888",
+    icon: Phone,
+    note: "Local: 066 207 7888 · International: +27 66 207 7888",
+  },
+  {
+    label: "LinkedIn",
+    value: "linkedin.com/in/damianparies",
+    href: "https://www.linkedin.com/in/damianparies/",
+    icon: Linkedin,
+    note: "Connect for work history and partnerships.",
+  },
+  {
+    label: "Instagram",
+    value: "@damianparies",
+    href: "https://www.instagram.com/damianparies/",
+    icon: Instagram,
+    note: "Behind the scenes of the pages and projects.",
+  },
+];
+
 function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
-
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setSubmitted(true);
-  }
-
   return (
     <div>
       <section className="container-page pt-20 md:pt-28 pb-16">
-        <p className="text-sm uppercase tracking-widest text-accent">Contact</p>
-        <h1 className="mt-6 text-5xl md:text-7xl leading-[0.95] text-balance max-w-4xl">
-          Let's build something worth building.
-        </h1>
-        <p className="mt-8 max-w-2xl text-lg text-ink-soft text-pretty">
-          Whether you're a brand looking for distribution, a founder building
-          something new, or a creator who wants to compare notes — I read every
-          message.
-        </p>
+        <Reveal variant="fade">
+          <p className="text-sm uppercase tracking-widest text-accent">Contact</p>
+        </Reveal>
+        <Reveal variant="up" delay={80}>
+          <h1 className="mt-6 text-5xl md:text-7xl leading-[0.95] text-balance max-w-4xl">
+            Let's build something <em className="text-accent not-italic">worth building.</em>
+          </h1>
+        </Reveal>
+        <Reveal variant="up" delay={160}>
+          <p className="mt-8 max-w-2xl text-lg text-ink-soft text-pretty">
+            Whether you're a brand looking for distribution, a founder building
+            something new, or a creator who wants to compare notes — pick
+            whichever channel works for you. I read every message.
+          </p>
+        </Reveal>
       </section>
 
-      <section className="container-page pb-24 grid md:grid-cols-[1.2fr_1fr] gap-12 md:gap-20 border-t border-rule pt-16">
-        {/* Form */}
-        <div>
-          {submitted ? (
-            <div className="rounded-lg border border-rule bg-surface p-10">
-              <h2 className="font-serif text-3xl">Thanks — message received.</h2>
-              <p className="mt-3 text-ink-soft">
-                I'll get back to you within a few days. In the meantime, feel
-                free to follow along on social.
-              </p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <Field label="Your name" name="name" required />
-              <Field label="Email" name="email" type="email" required />
-              <Field label="Company (optional)" name="company" />
-              <div>
-                <label className="block text-xs uppercase tracking-widest text-ink-soft mb-2">
-                  How can I help?
-                </label>
-                <textarea
-                  required
-                  rows={6}
-                  name="message"
-                  className="w-full bg-transparent border-b border-rule py-3 focus:border-foreground focus:outline-none transition-colors resize-none"
-                  placeholder="Tell me about the project…"
-                />
-              </div>
-              <button
-                type="submit"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm text-primary-foreground transition-opacity hover:opacity-90"
+      <section className="container-page pb-24 border-t border-rule pt-16">
+        <ul className="grid md:grid-cols-2 gap-px bg-rule rounded-lg overflow-hidden">
+          {channels.map((c, i) => {
+            const Icon = c.icon;
+            const external = c.href.startsWith("http");
+            return (
+              <Reveal
+                as="li"
+                key={c.label}
+                variant="blur"
+                delay={i * 100}
+                className="bg-background"
               >
-                Send message <ArrowUpRight className="size-4" />
-              </button>
-            </form>
-          )}
-        </div>
+                <a
+                  href={c.href}
+                  target={external ? "_blank" : undefined}
+                  rel={external ? "noopener noreferrer" : undefined}
+                  className="lift group block h-full p-8 md:p-10"
+                >
+                  <div className="flex items-start justify-between">
+                    <div className="flex items-center gap-3">
+                      <span className="inline-flex size-10 items-center justify-center rounded-full border border-rule text-accent transition-colors group-hover:bg-accent group-hover:text-accent-foreground group-hover:border-accent">
+                        <Icon className="size-4" />
+                      </span>
+                      <span className="text-xs uppercase tracking-widest text-ink-soft">
+                        {c.label}
+                      </span>
+                    </div>
+                    <ArrowUpRight className="size-5 text-ink-soft transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
+                  </div>
+                  <p className="mt-6 font-serif text-2xl md:text-3xl break-words">
+                    {c.value}
+                  </p>
+                  <p className="mt-3 text-sm text-ink-soft">{c.note}</p>
+                </a>
+              </Reveal>
+            );
+          })}
+        </ul>
 
-        {/* Direct */}
-        <div className="space-y-10">
-          <div>
-            <p className="text-xs uppercase tracking-widest text-ink-soft mb-3">
-              Or email directly
-            </p>
-            <a
-              href="mailto:hello@damianparies.com"
-              className="inline-flex items-center gap-2 font-serif text-2xl md:text-3xl link-underline"
-            >
-              <Mail className="size-5" />
-              hello@damianparies.com
-            </a>
-          </div>
-
-          <div>
-            <p className="text-xs uppercase tracking-widest text-ink-soft mb-3">
-              Find me on
-            </p>
-            <ul className="space-y-2 text-lg">
-              <li><a href="#" className="link-underline">Instagram →</a></li>
-              <li><a href="#" className="link-underline">TikTok →</a></li>
-              <li><a href="#" className="link-underline">X / Twitter →</a></li>
-              <li><a href="#" className="link-underline">LinkedIn →</a></li>
-            </ul>
-          </div>
-
-          <div className="pt-6 border-t border-rule text-sm text-ink-soft">
-            Currently based remote · Open to select projects in 2025.
-          </div>
-        </div>
+        <Reveal variant="fade" delay={200}>
+          <p className="mt-10 text-sm text-ink-soft">
+            Currently based in South Africa · Available remotely worldwide ·
+            Open to select projects in 2025.
+          </p>
+        </Reveal>
       </section>
-    </div>
-  );
-}
-
-function Field({
-  label,
-  name,
-  type = "text",
-  required,
-}: {
-  label: string;
-  name: string;
-  type?: string;
-  required?: boolean;
-}) {
-  return (
-    <div>
-      <label className="block text-xs uppercase tracking-widest text-ink-soft mb-2">
-        {label}
-      </label>
-      <input
-        type={type}
-        name={name}
-        required={required}
-        className="w-full bg-transparent border-b border-rule py-3 focus:border-foreground focus:outline-none transition-colors"
-      />
     </div>
   );
 }
