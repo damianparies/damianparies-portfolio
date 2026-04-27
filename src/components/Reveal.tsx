@@ -4,8 +4,7 @@ type Props = {
   children: ReactNode;
   delay?: number;
   className?: string;
-  as?: "div" | "section" | "li" | "ul" | "article" | "header" | "footer" | "p";
-};
+  as?: "div" | "section" | "li" | "ul" | "article" | "header" | "footer" | "p" | "blockquote";
 
 export function Reveal({ children, delay = 0, className = "", as: Tag = "div" }: Props) {
   const ref = useRef<HTMLElement | null>(null);
