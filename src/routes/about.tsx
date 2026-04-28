@@ -138,7 +138,7 @@ function AboutPage() {
 
       <section className="container-page py-20 border-t border-rule">
         <Reveal>
-          <h2 className="text-3xl md:text-4xl mb-12">What I do well.</h2>
+          <h2 className="section-header text-3xl md:text-4xl mb-12">What I do well.</h2>
         </Reveal>
         <div className="flex flex-wrap gap-2">
           {skills.map((s, i) => (
@@ -153,7 +153,7 @@ function AboutPage() {
 
       <section className="container-page py-20 border-t border-rule">
         <Reveal>
-          <h2 className="text-3xl md:text-4xl mb-12">Tools I work with.</h2>
+          <h2 className="section-header text-3xl md:text-4xl mb-12">Tools I work with.</h2>
         </Reveal>
         <div className="grid md:grid-cols-2 gap-8">
           {stack.map((g, i) => (
@@ -175,7 +175,7 @@ function AboutPage() {
       </section>
 
       <section className="container-page py-20 border-t border-rule">
-        <h2 className="text-3xl md:text-4xl mb-12">A short timeline.</h2>
+        <h2 className="section-header text-3xl md:text-4xl mb-12">A short timeline.</h2>
         <ol className="space-y-0">
           {timeline.map((t, i) => (
             <Reveal

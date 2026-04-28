@@ -86,7 +86,7 @@ function ProjectsPage() {
             as="article"
             key={p.name}
             variant={i % 2 === 0 ? "left" : "right"}
-            className="grid md:grid-cols-[1fr_1.2fr] gap-8 md:gap-12 pt-12 border-t border-rule"
+            className="lift grid md:grid-cols-[1fr_1.2fr] gap-8 md:gap-12 pt-12 border-t border-rule rounded-2xl bg-surface/40 p-6 md:p-8 border"
           >
             {/* Visual placeholder */}
             <div className="aspect-[4/5] md:aspect-auto md:min-h-[400px] rounded-lg bg-surface border border-rule flex flex-col items-center justify-center text-ink-soft">

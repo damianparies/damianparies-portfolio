@@ -61,7 +61,7 @@ function ContactPage() {
         </Reveal>
         <Reveal variant="up" delay={80}>
           <h1 className="mt-6 text-5xl md:text-7xl leading-[0.95] text-balance max-w-4xl">
-            Let's build something <em className="text-accent not-italic">worth building.</em>
+            Let's build something <em className="text-gradient-accent not-italic">worth building.</em>
           </h1>
         </Reveal>
         <Reveal variant="up" delay={160}>
