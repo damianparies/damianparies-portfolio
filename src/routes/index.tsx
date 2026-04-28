@@ -65,7 +65,7 @@ function Index() {
           <br />
           quiet machines
           <br />
-          <em className="text-accent not-italic">behind them.</em>
+          <em className="text-gradient-accent not-italic">behind them.</em>
         </h1>
 
         <div className="mt-10 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
@@ -112,7 +112,7 @@ function Index() {
             <p className="text-sm uppercase tracking-widest text-ink-soft">
               Selected
             </p>
-            <h2 className="mt-2 text-4xl md:text-5xl">A working index.</h2>
+            <h2 className="section-header mt-2 text-4xl md:text-5xl">A working index.</h2>
           </div>
           <Link to="/projects" className="hidden md:inline-flex link-underline text-sm">
             View all →

@@ -65,7 +65,7 @@ function WorkPage() {
       </section>
 
       <section className="container-page py-16 border-t border-rule">
-        <h2 className="text-sm uppercase tracking-widest text-ink-soft mb-10">
+        <h2 className="section-header text-3xl md:text-4xl mb-12">
           What I do
         </h2>
         <div className="grid md:grid-cols-2 gap-px bg-rule">
@@ -81,7 +81,7 @@ function WorkPage() {
       </section>
 
       <section className="container-page py-16 border-t border-rule">
-        <h2 className="text-sm uppercase tracking-widest text-ink-soft mb-10">
+        <h2 className="section-header text-3xl md:text-4xl mb-12">
           Selected clients
         </h2>
         <ul>
