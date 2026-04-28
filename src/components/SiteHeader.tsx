@@ -14,26 +14,30 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 backdrop-blur-md bg-background/75 border-b border-rule">
+    <header className="sticky top-0 z-40 glass border-b border-white/10">
       <div className="container-page flex items-center justify-between h-16">
         <Link
           to="/"
-          className="font-serif text-xl tracking-tight"
+          className="flex items-center gap-3"
           onClick={() => setOpen(false)}
         >
-          Damian Paries
-          <span className="text-accent">.</span>
+          <span className="grid size-8 place-items-center rounded-xl bg-accent text-accent-foreground font-serif font-bold text-sm leading-none">
+            DP
+          </span>
+          <span className="font-serif text-lg tracking-tight uppercase">
+            Damian Paries
+          </span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8 text-sm">
+        <nav className="hidden md:flex items-center gap-9 text-xs font-medium uppercase tracking-[2px]">
           {links.map((l) => (
             <Link
               key={l.to}
               to={l.to}
               activeOptions={{ exact: l.exact }}
-              activeProps={{ className: "text-foreground" }}
+              activeProps={{ className: "text-foreground", "data-status": "active" } as never}
               inactiveProps={{ className: "text-ink-soft" }}
-              className="link-underline transition-colors hover:text-foreground"
+              className="nav-link transition-colors hover:text-foreground"
             >
               {l.label}
             </Link>
