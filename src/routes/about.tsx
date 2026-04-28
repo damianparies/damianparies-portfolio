@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
+import portrait from "@/assets/damian-portrait.png";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -8,7 +9,7 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "Damian Paries — operator, creator, and builder of social media brands. Five years growing audiences and shipping work with companies.",
+          "Damian Paries — Senior E-Commerce Copywriter, Website Administrator, and digital entrepreneur based in Cape Town, South Africa.",
       },
       { property: "og:title", content: "About — Damian Paries" },
       {
@@ -16,6 +17,8 @@ export const Route = createFileRoute("/about")({
         content:
           "The story behind the pages, partners, and projects.",
       },
+      { property: "og:image", content: portrait },
+      { property: "twitter:image", content: portrait },
     ],
   }),
   component: AboutPage,
@@ -23,30 +26,53 @@ export const Route = createFileRoute("/about")({
 
 const timeline = [
   {
-    year: "2020",
-    title: "First page goes live",
-    body: "Started experimenting with niche theme pages. Learned distribution, hooks, and retention by shipping daily.",
-  },
-  {
     year: "2021",
-    title: "Audience compounds",
-    body: "Several pages crossed six figures of followers. Began testing monetization through shoutouts and affiliate offers.",
+    title: "First theme pages go live",
+    body: "Started building niche social media theme pages as a part-time digital entrepreneur. Learned distribution, hooks, and retention by shipping daily.",
   },
   {
     year: "2022",
-    title: "First brand partnerships",
-    body: "Companies started reaching out. Built repeatable processes for managed campaigns and sponsored content.",
+    title: "Audience compounds",
+    body: "Scaled multiple pages to tens of thousands of followers. Began monetizing through digital products — eBooks and habit trackers — with zero inventory cost.",
   },
   {
     year: "2023",
-    title: "Operator mode",
-    body: "Scaled to a network of pages across niches. Hired, automated, and turned the operation into a real business.",
+    title: "Multi-stream revenue",
+    body: "Ran 3+ income streams in parallel: digital products, physical merchandise shipped internationally, and selling built social media assets to buyers.",
   },
   {
-    year: "2024 →",
-    title: "Building for others",
-    body: "Now consulting and partnering with brands and founders on growth, content systems, and digital products.",
+    year: "2024",
+    title: "Beds On Line",
+    body: "Joined Beds On Line as E-Commerce Copywriter & Social Media Manager — product listings, content creation, and working alongside the buying and marketing teams.",
   },
+  {
+    year: "2025",
+    title: "Tafelberg Furnishers",
+    body: "Promoted into a Senior E-Commerce Copywriter & Website Administrator role. Leading a team of 2 copywriters and growing the online catalogue by over 30%.",
+  },
+  {
+    year: "2026 →",
+    title: "Studying & building",
+    body: "Started a Bachelor of Business Administration in Marketing Management at Stadio Higher Education, while continuing to build digital projects on the side.",
+  },
+];
+
+const skills = [
+  "Team Leadership",
+  "E-Commerce Operations",
+  "Copywriting & Editing",
+  "Website Administration",
+  "Social Media & Content",
+  "Promotional Campaigns",
+  "Workflow Coordination",
+  "Customer-Focused Mindset",
+];
+
+const stack = [
+  { group: "E-Commerce", items: ["WordPress", "Shopify", "StoreFront", "Gumroad", "Teespring"] },
+  { group: "Content", items: ["Canva", "CapCut", "Picsart", "Grammarly", "InShot", "Loom"] },
+  { group: "AI", items: ["ChatGPT", "Claude", "Midjourney", "ElevenLabs", "ManyChat", "Perplexity"] },
+  { group: "Collaboration", items: ["Notion", "MS Teams", "Zoom", "Dropbox", "Excel"] },
 ];
 
 function AboutPage() {
@@ -60,37 +86,91 @@ function AboutPage() {
       </section>
 
       <section className="container-page grid md:grid-cols-[2fr_3fr] gap-12 md:gap-20 pb-20 border-t border-rule pt-16">
-        <div className="md:sticky md:top-24 self-start">
-          <div className="aspect-[4/5] rounded-lg bg-surface border border-rule flex items-center justify-center text-ink-soft text-sm">
-            Portrait coming soon
+        <Reveal variant="scale" className="md:sticky md:top-24 self-start">
+          <div className="aspect-[4/5] overflow-hidden rounded-lg bg-surface border border-rule">
+            <img
+              src={portrait}
+              alt="Portrait of Damian Paries"
+              className="h-full w-full object-cover"
+              loading="lazy"
+            />
           </div>
           <p className="mt-4 text-xs text-ink-soft">
-            Photo placeholder — upload to replace.
+            Cape Town, South Africa.
           </p>
-        </div>
+        </Reveal>
 
         <div className="space-y-6 text-lg text-ink-soft text-pretty leading-relaxed">
-          <p>
-            I'm <span className="text-foreground">Damian Paries</span>. I build
-            things on the internet — mostly audiences, sometimes products, and
-            increasingly, the systems that make them grow without me.
-          </p>
-          <p>
-            For the past few years I've been quietly building social media
-            theme pages across multiple niches. What started as one account
-            turned into a network: a few million followers, a portfolio of
-            brand partnerships, and a small library of monetization playbooks
-            that actually work.
-          </p>
-          <p>
-            Alongside that, I've worked with companies — from early-stage
-            founders to established brands — on content strategy, growth, and
-            digital execution. I prefer long projects over loud ones, and
-            measurable outcomes over vanity metrics.
-          </p>
-          <p className="text-foreground font-serif text-2xl pt-4 border-t border-rule">
-            If you're building something interesting, I'd love to hear about it.
-          </p>
+          <Reveal variant="fade">
+            <p>
+              I'm <span className="text-foreground">Damian Paries</span> — a
+              Senior E-Commerce Copywriter and Website Administrator at
+              <span className="text-foreground"> Tafelberg Furnishers</span>,
+              where I lead a small copywriting team, manage the online
+              catalogue, and have grown it by over 30%.
+            </p>
+          </Reveal>
+          <Reveal variant="fade" delay={100}>
+            <p>
+              Before that, I spent years quietly building social media theme
+              pages on the side — scaling accounts to tens of thousands of
+              followers and turning them into real revenue through digital
+              products, physical merchandise shipped worldwide, and selling
+              built pages to buyers.
+            </p>
+          </Reveal>
+          <Reveal variant="fade" delay={200}>
+            <p>
+              Today I split my time between e-commerce work, a Bachelor of
+              Business Administration in Marketing Management at Stadio Higher
+              Education, and the projects I keep building on the side. I prefer
+              long projects over loud ones, and measurable outcomes over vanity
+              metrics.
+            </p>
+          </Reveal>
+          <Reveal variant="up" delay={300}>
+            <p className="text-foreground font-serif text-2xl pt-4 border-t border-rule">
+              If you're building something interesting, I'd love to hear about it.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="container-page py-20 border-t border-rule">
+        <Reveal>
+          <h2 className="text-3xl md:text-4xl mb-12">What I do well.</h2>
+        </Reveal>
+        <div className="flex flex-wrap gap-2">
+          {skills.map((s, i) => (
+            <Reveal key={s} variant="scale" delay={i * 40}>
+              <span className="inline-flex items-center rounded-full border border-rule px-4 py-2 text-sm text-foreground bg-surface/50">
+                {s}
+              </span>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section className="container-page py-20 border-t border-rule">
+        <Reveal>
+          <h2 className="text-3xl md:text-4xl mb-12">Tools I work with.</h2>
+        </Reveal>
+        <div className="grid md:grid-cols-2 gap-8">
+          {stack.map((g, i) => (
+            <Reveal
+              key={g.group}
+              variant={i % 2 === 0 ? "left" : "right"}
+              delay={i * 80}
+              className="border-t border-rule pt-6"
+            >
+              <p className="text-sm uppercase tracking-widest text-accent">
+                {g.group}
+              </p>
+              <p className="mt-3 text-lg text-ink-soft">
+                {g.items.join(" · ")}
+              </p>
+            </Reveal>
+          ))}
         </div>
       </section>
 
