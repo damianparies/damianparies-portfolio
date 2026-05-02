@@ -9,85 +9,44 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "Damian Paries — Senior E-Commerce Copywriter, Website Administrator, and digital entrepreneur based in Cape Town, South Africa.",
+          "Damian Paries — Senior E-Commerce Copywriter, Website Administrator, and digital entrepreneur based in Cape Town.",
       },
-      { property: "og:title", content: "About — Damian Paries" },
-      {
-        property: "og:description",
-        content:
-          "The story behind the pages, partners, and projects.",
-      },
-      { property: "og:image", content: portrait },
-      { property: "twitter:image", content: portrait },
     ],
   }),
   component: AboutPage,
 });
 
 const timeline = [
-  {
-    year: "2021",
-    title: "First theme pages go live",
-    body: "Started building niche social media theme pages as a part-time digital entrepreneur. Learned distribution, hooks, and retention by shipping daily.",
-  },
-  {
-    year: "2022",
-    title: "Audience compounds",
-    body: "Scaled multiple pages to tens of thousands of followers. Began monetizing through digital products — eBooks and habit trackers — with zero inventory cost.",
-  },
-  {
-    year: "2023",
-    title: "Multi-stream revenue",
-    body: "Ran 3+ income streams in parallel: digital products, physical merchandise shipped internationally, and selling built social media assets to buyers.",
-  },
-  {
-    year: "2024",
-    title: "Beds On Line",
-    body: "Joined Beds On Line as E-Commerce Copywriter & Social Media Manager — product listings, content creation, and working alongside the buying and marketing teams.",
-  },
-  {
-    year: "2025",
-    title: "Tafelberg Furnishers",
-    body: "Promoted into a Senior E-Commerce Copywriter & Website Administrator role. Leading a team of 2 copywriters and growing the online catalogue by over 30%.",
-  },
-  {
-    year: "2026 →",
-    title: "Studying & building",
-    body: "Started a Bachelor of Business Administration in Marketing Management at Stadio Higher Education, while continuing to build digital projects on the side.",
-  },
+  { date: "December 2020", text: "Built NLE Choppa Instagram fan page from zero to 77,500 followers. Sold directly to the artist." },
+  { date: "November 2021", text: "Launched NLE Choppa TikTok page. Grew to 200,000+ followers in 6 months. Sold to US jewelry company." },
+  { date: "March 2022", text: "Acquired two Outer Banks fan pages. Scaled to 100,000+ combined followers. Launched Pogue Life international merchandise brand." },
+  { date: "2023", text: "Built Master Hustle brand across Instagram, TikTok and YouTube. Published Mind Power ebook — 2,000+ copies sold worldwide. Sold brand to US buyer November 2024." },
+  { date: "July 2025", text: "Founded Vault XI, a South African soccer jersey e-commerce brand. Built brand identity, website, and business cards independently." },
+  { date: "February 2024", text: "Joined Beds Online as E-Commerce Copywriter and Social Media Manager." },
+  { date: "March 2025", text: "Joined Tafelberg Furnishers as Senior E-Commerce Copywriter and Website Administrator." },
+  { date: "2026", text: "Enrolled in BBA Marketing Management at Stadio Higher Education." },
 ];
 
 const skills = [
-  "Team Leadership",
-  "E-Commerce Operations",
-  "Copywriting & Editing",
-  "Website Administration",
-  "Social Media & Content",
-  "Promotional Campaigns",
-  "Workflow Coordination",
-  "Customer-Focused Mindset",
-];
-
-const stack = [
-  { group: "E-Commerce", items: ["WordPress", "Shopify", "StoreFront", "Gumroad", "Teespring"] },
-  { group: "Content", items: ["Canva", "CapCut", "Picsart", "Grammarly", "InShot", "Loom"] },
-  { group: "AI", items: ["ChatGPT", "Claude", "Midjourney", "ElevenLabs", "ManyChat", "Perplexity"] },
-  { group: "Collaboration", items: ["Notion", "MS Teams", "Zoom", "Dropbox", "Excel"] },
+  "Copywriting", "Content Strategy", "E-Commerce Operations", "Social Media Growth",
+  "Team Leadership", "Digital Product Creation", "Campaign Planning", "WordPress",
+  "Canva", "Shopify", "Gumroad", "Microsoft Office Suite", "AI Tools",
 ];
 
 function AboutPage() {
   return (
     <div>
       <section className="container-page pt-20 md:pt-28 pb-16">
-        <p className="text-sm uppercase tracking-widest text-accent">About</p>
-        <h1 className="mt-6 text-5xl md:text-7xl leading-[0.95] text-balance max-w-4xl">
-          A creator who learned to operate, and an operator who never stopped creating.
-        </h1>
+        <Reveal>
+          <p className="section-label">About</p>
+          <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl max-w-3xl">About Me</h1>
+        </Reveal>
       </section>
 
-      <section className="container-page grid md:grid-cols-[2fr_3fr] gap-12 md:gap-20 pb-20 border-t border-rule pt-16">
-        <Reveal variant="scale" className="md:sticky md:top-24 self-start">
-          <div className="aspect-[4/5] overflow-hidden rounded-lg bg-surface border border-rule">
+      {/* Portrait + Bio */}
+      <section className="container-page grid md:grid-cols-[280px_1fr] lg:grid-cols-[320px_1fr] gap-10 md:gap-16 pb-20">
+        <Reveal className="self-start">
+          <div className="aspect-[3/4] overflow-hidden rounded bg-surface border border-rule">
             <img
               src={portrait}
               alt="Portrait of Damian Paries"
@@ -95,105 +54,70 @@ function AboutPage() {
               loading="lazy"
             />
           </div>
-          <p className="mt-4 text-xs text-ink-soft">
-            Cape Town, South Africa.
-          </p>
         </Reveal>
 
-        <div className="space-y-6 text-lg text-ink-soft text-pretty leading-relaxed">
-          <Reveal variant="fade">
+        <div className="space-y-5 text-base md:text-[17px] text-ink-soft leading-relaxed">
+          <Reveal delay={100}>
             <p>
-              I'm <span className="text-foreground">Damian Paries</span> — a
-              Senior E-Commerce Copywriter and Website Administrator at
-              <span className="text-foreground"> Tafelberg Furnishers</span>,
-              where I lead a small copywriting team, manage the online
-              catalogue, and have grown it by over 30%.
+              I'm Damian Paries, a marketing and e-commerce professional based in
+              Brackenfell, Cape Town. I started building digital properties at 17 —
+              growing social media pages from zero to hundreds of thousands of
+              followers, launching merchandise brands, and selling digital products
+              globally. That operator mindset is what I bring to every role I take on.
             </p>
           </Reveal>
-          <Reveal variant="fade" delay={100}>
+          <Reveal delay={150}>
             <p>
-              Before that, I spent years quietly building social media theme
-              pages on the side — scaling accounts to tens of thousands of
-              followers and turning them into real revenue through digital
-              products, physical merchandise shipped worldwide, and selling
-              built pages to buyers.
+              Since 2024 I've been working in corporate e-commerce — first at Beds
+              Online as an E-Commerce Copywriter and Social Media Manager, and
+              currently at Tafelberg Furnishers as a Senior E-Commerce Copywriter and
+              Website Administrator, where I lead a copywriting team and manage the
+              full online product catalogue.
             </p>
           </Reveal>
-          <Reveal variant="fade" delay={200}>
+          <Reveal delay={200}>
             <p>
-              Today I split my time between e-commerce work, a Bachelor of
-              Business Administration in Marketing Management at Stadio Higher
-              Education, and the projects I keep building on the side. I prefer
-              long projects over loud ones, and measurable outcomes over vanity
-              metrics.
-            </p>
-          </Reveal>
-          <Reveal variant="up" delay={300}>
-            <p className="text-foreground font-serif text-2xl pt-4 border-t border-rule">
-              If you're building something interesting, I'd love to hear about it.
+              I'm currently completing a Bachelor of Business Administration in
+              Marketing Management at Stadio Higher Education, building the strategic
+              foundation to match my hands-on experience.
             </p>
           </Reveal>
         </div>
       </section>
 
-      <section className="container-page py-20 border-t border-rule">
+      {/* Timeline */}
+      <section className="container-page py-16 border-t border-rule">
         <Reveal>
-          <h2 className="section-header text-3xl md:text-4xl mb-12">What I do well.</h2>
+          <h2 className="text-2xl md:text-3xl mb-10">Journey So Far</h2>
         </Reveal>
-        <div className="flex flex-wrap gap-2">
-          {skills.map((s, i) => (
-            <Reveal key={s} variant="scale" delay={i * 40}>
-              <span className="inline-flex items-center rounded-full border border-rule px-4 py-2 text-sm text-foreground bg-surface/50">
+        <ol className="relative border-l border-rule ml-3 md:ml-4 space-y-0">
+          {timeline.map((t, i) => (
+            <Reveal as="li" key={i} delay={i * 60} className="pl-8 pb-8 last:pb-0 relative">
+              <span className="absolute left-0 top-1.5 -translate-x-1/2 size-2.5 rounded-full bg-navy" />
+              <p className="text-xs font-medium uppercase tracking-wider text-navy">{t.date}</p>
+              <p className="mt-1.5 text-ink-soft leading-relaxed">{t.text}</p>
+            </Reveal>
+          ))}
+        </ol>
+      </section>
+
+      {/* Skills */}
+      <section className="container-page py-16 border-t border-rule">
+        <Reveal>
+          <h2 className="text-2xl md:text-3xl mb-8">Skills & Tools</h2>
+        </Reveal>
+        <Reveal delay={100}>
+          <div className="flex flex-wrap gap-2">
+            {skills.map((s) => (
+              <span
+                key={s}
+                className="inline-block rounded-full border border-rule px-4 py-1.5 text-sm text-foreground"
+              >
                 {s}
               </span>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      <section className="container-page py-20 border-t border-rule">
-        <Reveal>
-          <h2 className="section-header text-3xl md:text-4xl mb-12">Tools I work with.</h2>
+            ))}
+          </div>
         </Reveal>
-        <div className="grid md:grid-cols-2 gap-8">
-          {stack.map((g, i) => (
-            <Reveal
-              key={g.group}
-              variant={i % 2 === 0 ? "left" : "right"}
-              delay={i * 80}
-              className="border-t border-rule pt-6"
-            >
-              <p className="text-sm uppercase tracking-widest text-accent">
-                {g.group}
-              </p>
-              <p className="mt-3 text-lg text-ink-soft">
-                {g.items.join(" · ")}
-              </p>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      <section className="container-page py-20 border-t border-rule">
-        <h2 className="section-header text-3xl md:text-4xl mb-12">A short timeline.</h2>
-        <ol className="space-y-0">
-          {timeline.map((t, i) => (
-            <Reveal
-              as="li"
-              key={t.year}
-              variant={i % 2 === 0 ? "left" : "right"}
-              delay={i * 100}
-              className="grid grid-cols-1 md:grid-cols-[140px_1fr] gap-4 md:gap-12 py-8 border-t border-rule"
-            >
-              <span className="text-ink-soft text-sm">{t.year}</span>
-              <div>
-                <h3 className="font-serif text-2xl">{t.title}</h3>
-                <p className="mt-2 text-ink-soft max-w-2xl">{t.body}</p>
-              </div>
-            </Reveal>
-          ))}
-          <li className="border-t border-rule" />
-        </ol>
       </section>
     </div>
   );
