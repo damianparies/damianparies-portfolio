@@ -1,8 +1,6 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import { ScrollProgress } from "@/components/ScrollProgress";
-import { CustomCursor } from "@/components/CustomCursor";
 
 import appCss from "../styles.css?url";
 
@@ -10,15 +8,15 @@ function NotFoundComponent() {
   return (
     <div className="flex min-h-[70vh] items-center justify-center container-page">
       <div className="max-w-md text-center">
-        <p className="text-accent text-sm uppercase tracking-widest">Error 404</p>
-        <h1 className="mt-4 text-6xl md:text-7xl">Lost in the archive.</h1>
+        <p className="section-label">Error 404</p>
+        <h1 className="mt-4 text-5xl md:text-6xl">Page not found.</h1>
         <p className="mt-4 text-ink-soft">
           The page you're looking for doesn't exist or has moved.
         </p>
         <div className="mt-8">
           <Link
             to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-5 py-3 text-sm text-primary-foreground transition-opacity hover:opacity-90"
+            className="inline-flex items-center justify-center rounded bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-85"
           >
             Back home
           </Link>
@@ -33,27 +31,20 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Damian Paries - Portfolio" },
+      { title: "Damian Paries — Marketing Strategist & Growth Operator" },
       {
         name: "description",
         content:
-          "Portfolio of Damian Paries — building social media brands, growing audiences, and shipping work for companies.",
+          "Portfolio of Damian Paries — marketing strategist, growth operator, and digital builder. Senior E-Commerce Copywriter at Tafelberg Furnishers.",
       },
       { name: "author", content: "Damian Paries" },
-      { property: "og:title", content: "Damian Paries - Portfolio" },
+      { property: "og:title", content: "Damian Paries — Marketing Strategist & Growth Operator" },
       {
         property: "og:description",
-        content:
-          "A selected archive of theme pages, audiences grown, and client work.",
+        content: "I build audiences, brands, and the systems behind them.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Damian Paries - Portfolio" },
-      { name: "description", content: "Showcase Studio is a modern, responsive portfolio website for displaying creative projects and professional work." },
-      { property: "og:description", content: "Showcase Studio is a modern, responsive portfolio website for displaying creative projects and professional work." },
-      { name: "twitter:description", content: "Showcase Studio is a modern, responsive portfolio website for displaying creative projects and professional work." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/86528108-e421-40db-ba74-a788ed9c9467/id-preview-5538faed--348d5014-e44d-41c2-b01f-5d98e6260236.lovable.app-1777363512516.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/86528108-e421-40db-ba74-a788ed9c9467/id-preview-5538faed--348d5014-e44d-41c2-b01f-5d98e6260236.lovable.app-1777363512516.png" },
     ],
     links: [{ rel: "stylesheet", href: appCss }],
   }),
@@ -79,10 +70,8 @@ function RootShell({ children }: { children: React.ReactNode }) {
 function RootComponent() {
   return (
     <div className="flex min-h-screen flex-col">
-      <ScrollProgress />
-      <CustomCursor />
       <SiteHeader />
-      <main className="flex-1">
+      <main className="flex-1 pt-14">
         <Outlet />
       </main>
       <SiteFooter />

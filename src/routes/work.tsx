@@ -4,108 +4,85 @@ import { Reveal } from "@/components/Reveal";
 export const Route = createFileRoute("/work")({
   head: () => ({
     meta: [
-      { title: "Client Work — Damian Paries" },
+      { title: "Work — Damian Paries" },
       {
         name: "description",
-        content:
-          "Selected client work — partnerships, campaigns, and digital projects with companies and founders.",
-      },
-      { property: "og:title", content: "Client Work — Damian Paries" },
-      {
-        property: "og:description",
-        content:
-          "A look at the brands and companies I've partnered with.",
+        content: "Professional experience — Senior E-Commerce Copywriter at Tafelberg Furnishers and E-Commerce Copywriter at Beds Online.",
       },
     ],
   }),
   component: WorkPage,
 });
 
-const services = [
+const roles = [
   {
-    title: "Audience Growth",
-    body: "Building distribution from zero — formats, hooks, posting cadence, and the systems behind them.",
+    company: "Tafelberg Furnishers (Pty) Ltd",
+    role: "Senior E-Commerce Copywriter & Website Administrator",
+    period: "March 2025 — Present",
+    description:
+      "Leading a team of two copywriters managing the full online product catalogue for one of South Africa's established furniture retailers. Grew the catalogue by over 30%, coordinated promotional campaigns across buying and marketing teams, managed the website backend, and liaised with external developers to improve workflow and customer experience.",
+    tags: [
+      "Catalogue grown 30%+",
+      "Team of 2 managed",
+      "Promotional campaigns executed",
+      "Website backend administered",
+      "Cross-departmental coordination",
+    ],
   },
   {
-    title: "Content Strategy",
-    body: "Translating a brand's positioning into a content engine that actually compounds over time.",
+    company: "Beds Online",
+    role: "E-Commerce Copywriter & Social Media Manager",
+    period: "February 2024 — February 2025",
+    description:
+      "Managed online product listings, social media content creation, and vendor relationships for a South African e-commerce furniture brand. Handled end-to-end product data entry, image editing, and cross-team collaboration with buying and marketing departments.",
+    tags: [
+      "Social media managed and grown",
+      "Product catalogue maintained",
+      "Vendor relationships built",
+      "Cross-team collaboration",
+    ],
   },
-  {
-    title: "Brand Partnerships",
-    body: "Connecting brands to creator audiences through campaigns built for performance, not vanity.",
-  },
-  {
-    title: "Operations & Systems",
-    body: "Turning ad-hoc content production into a documented, repeatable, hire-able workflow.",
-  },
-];
-
-const clients = [
-  { name: "Client A", scope: "Multi-month growth retainer", year: "2024" },
-  { name: "Client B", scope: "Launch campaign — 3.2M reach", year: "2024" },
-  { name: "Client C", scope: "Content system & playbooks", year: "2023" },
-  { name: "Client D", scope: "Acquisition & rebuild", year: "2023" },
-  { name: "Client E", scope: "Sponsored series, 6 episodes", year: "2022" },
-  { name: "Client F", scope: "Founder personal brand", year: "2022" },
 ];
 
 function WorkPage() {
   return (
     <div>
       <section className="container-page pt-20 md:pt-28 pb-16">
-        <p className="text-sm uppercase tracking-widest text-accent">Work</p>
-        <h1 className="mt-6 text-5xl md:text-7xl leading-[0.95] text-balance max-w-4xl">
-          Companies I've helped grow, ship, and tell their story.
-        </h1>
-        <p className="mt-8 max-w-2xl text-lg text-ink-soft text-pretty">
-          A short list of the kind of work I take on, and a selected archive of
-          past partners. Engagements range from one-off campaigns to long-term
-          growth retainers.
-        </p>
+        <Reveal>
+          <p className="section-label">Experience</p>
+          <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl max-w-3xl">Professional Experience</h1>
+        </Reveal>
       </section>
 
-      <section className="container-page py-16 border-t border-rule">
-        <h2 className="section-header text-3xl md:text-4xl mb-12">
-          What I do
-        </h2>
-        <div className="grid md:grid-cols-2 gap-px bg-rule">
-          {services.map((s, i) => (
-            <Reveal key={s.title} variant="scale" delay={i * 100} className="bg-background p-8 md:p-10 lift">
-              <h3 className="font-serif text-2xl md:text-3xl">{s.title}</h3>
-              <p className="mt-3 text-ink-soft text-pretty leading-relaxed">
-                {s.body}
-              </p>
+      <section className="container-page pb-20">
+        <div className="grid md:grid-cols-2 gap-6">
+          {roles.map((r, i) => (
+            <Reveal key={r.company} delay={i * 120}>
+              <div className="card-hover h-full border border-rule rounded-lg p-6 md:p-8 bg-background">
+                <p className="section-label">{r.period}</p>
+                <h2 className="mt-3 font-serif text-2xl md:text-[1.65rem] leading-tight">{r.company}</h2>
+                <p className="mt-1 text-sm font-medium text-navy">{r.role}</p>
+                <p className="mt-4 text-sm text-ink-soft leading-relaxed">{r.description}</p>
+                <div className="mt-5 flex flex-wrap gap-1.5">
+                  {r.tags.map((t) => (
+                    <span
+                      key={t}
+                      className="inline-block rounded-full bg-surface px-3 py-1 text-xs text-ink-soft"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </Reveal>
           ))}
         </div>
-      </section>
 
-      <section className="container-page py-16 border-t border-rule">
-        <h2 className="section-header text-3xl md:text-4xl mb-12">
-          Selected clients
-        </h2>
-        <ul>
-          {clients.map((c, i) => (
-            <Reveal
-              as="li"
-              key={c.name}
-              variant="left"
-              delay={i * 80}
-              className="grid grid-cols-[1fr_auto] md:grid-cols-[200px_1fr_auto] gap-4 md:gap-8 items-baseline py-6 border-t border-rule"
-            >
-              <span className="font-serif text-2xl md:text-3xl">{c.name}</span>
-              <span className="hidden md:block text-ink-soft">{c.scope}</span>
-              <span className="text-ink-soft text-sm">{c.year}</span>
-              <span className="md:hidden col-span-2 text-ink-soft text-sm -mt-3">
-                {c.scope}
-              </span>
-            </Reveal>
-          ))}
-          <li className="border-t border-rule" />
-        </ul>
-        <p className="mt-8 text-sm text-ink-soft italic">
-          Specific names available on request — many partnerships are under NDA.
-        </p>
+        <Reveal delay={250}>
+          <p className="mt-10 text-sm text-ink-soft italic">
+            References available upon request.
+          </p>
+        </Reveal>
       </section>
     </div>
   );
