@@ -116,7 +116,7 @@ function ContactPage() {
         <Reveal variant="fade" delay={200}>
           <p className="mt-10 text-sm text-ink-soft">
             Currently based in South Africa · Available remotely worldwide ·
-            Open to select projects in 2025.
+            Open to select projects in 2026.
           </p>
         </Reveal>
       </section>
