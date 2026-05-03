@@ -25,7 +25,7 @@ const items: GalleryItem[] = [
     "v1777824318/Black_Beige_Simple_Typography_Cosmetic_Brand_Business_Card_-_2_zarhwz.jpg",
     "v1777824310/Black_Beige_Simple_Typography_Cosmetic_Brand_Business_Card_-_1_onq9jp.png",
     "v1777824309/IMG_6045_lid4e9.png",
-  ].map((p) => ({ src: `https://res.cloudinary.com/dpylvnjuj/image/upload/${p}`, category: "Vault XI" })),
+  ].map((p) => ({ src: `https://res.cloudinary.com/dpylvnjuj/image/upload/w_800,q_auto,f_auto/${p}`, category: "Vault XI" })),
 
   // MASTER HUSTLE
   ...[
@@ -48,7 +48,7 @@ const items: GalleryItem[] = [
     "v1777824139/35BC1D7C-917C-4DAC-B830-49E1A8370A7E_lhen1f.png","v1777824139/IMG_6455_nejnst.png",
     "v1777824132/IMG_4446_nwhkly.png","v1777824128/IMG_3136_exr5sv.jpg","v1777824127/IMG_3561_gcdvp2.png",
     "v1777824122/IMG_1169_shgmpf.png",
-  ].map((p) => ({ src: `https://res.cloudinary.com/dpylvnjuj/image/upload/${p}`, category: "Master Hustle" })),
+  ].map((p) => ({ src: `https://res.cloudinary.com/dpylvnjuj/image/upload/w_800,q_auto,f_auto/${p}`, category: "Master Hustle" })),
 
   // OUTERBANKS
   ...[
@@ -62,19 +62,19 @@ const items: GalleryItem[] = [
     "v1777824013/IMG_9799_cczjal.png","v1777824013/IMG_6101_pf5unf.jpg","v1777824013/IMG_6099_m2y3g4.jpg",
     "v1777824007/IMG_6098_w2ezxl.jpg","v1777824005/IMG_1291_ydixab.jpg","v1777824003/IMG_2704_pcguxj.jpg",
     "v1777824000/E9EE9DA1-F88C-44D1-B94A-ABB6529587A8_x6rjzi.jpg",
-  ].map((p) => ({ src: `https://res.cloudinary.com/dpylvnjuj/image/upload/${p}`, category: "Outerbanks" })),
+  ].map((p) => ({ src: `https://res.cloudinary.com/dpylvnjuj/image/upload/w_800,q_auto,f_auto/${p}`, category: "Outerbanks" })),
 
   // LUSSO AUTO
   ...[
     "v1777824258/IMG_2601_tgdpfx.png","v1777824245/IMG_2602_kdwbik.png",
-  ].map((p) => ({ src: `https://res.cloudinary.com/dpylvnjuj/image/upload/${p}`, category: "Lusso Auto" })),
+  ].map((p) => ({ src: `https://res.cloudinary.com/dpylvnjuj/image/upload/w_800,q_auto,f_auto/${p}`, category: "Lusso Auto" })),
 
   // NLE CHOPPA
   ...[
     "v1777824011/IMG_7302_llthxh.png","v1777824003/IMG_9220_fvped9.jpg",
     "v1777823996/IMG_1798_oieqbh.jpg","v1777823996/IMG_1782_vb590l.jpg",
     "v1777823994/db83dbf0-8dc2-42f7-9adb-8cb5a5cf58c1_plicwq.jpg",
-  ].map((p) => ({ src: `https://res.cloudinary.com/dpylvnjuj/image/upload/${p}`, category: "NLE Choppa" })),
+  ].map((p) => ({ src: `https://res.cloudinary.com/dpylvnjuj/image/upload/w_800,q_auto,f_auto/${p}`, category: "NLE Choppa" })),
 ];
 
 function GalleryPage() {
