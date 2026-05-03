@@ -2,10 +2,11 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
-const links: { to: "/" | "/work" | "/projects" | "/about" | "/contact"; label: string; exact?: boolean }[] = [
+const links: { to: "/" | "/work" | "/projects" | "/gallery" | "/about" | "/contact"; label: string; exact?: boolean }[] = [
   { to: "/", label: "Index", exact: true },
   { to: "/work", label: "Work" },
   { to: "/projects", label: "Projects" },
+  { to: "/gallery", label: "Gallery" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ];
