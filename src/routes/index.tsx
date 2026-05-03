@@ -31,21 +31,21 @@ const stats = [
 
 const featured = [
   {
-    year: "2024",
-    title: "Theme Pages Network",
-    role: "Founder & Operator",
-    href: "/projects",
-  },
-  {
-    year: "2023",
-    title: "Brand collaborations",
-    role: "Growth & Content",
+    year: "2025",
+    title: "Tafelberg Furnishers",
+    role: "Senior Copywriter & Web Admin",
     href: "/work",
   },
   {
-    year: "2022",
-    title: "Monetization playbooks",
-    role: "Strategy",
+    year: "2024",
+    title: "Beds On Line",
+    role: "E-Commerce & Social Media",
+    href: "/work",
+  },
+  {
+    year: "2021–Present",
+    title: "Master Hustle",
+    role: "Founder & Operator",
     href: "/projects",
   },
 ];
