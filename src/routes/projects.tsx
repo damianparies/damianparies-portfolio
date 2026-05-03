@@ -1,21 +1,20 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { TrendingUp, Users, DollarSign } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
-      { title: "Projects & Theme Pages — Damian Paries" },
+      { title: "Projects — Damian Paries" },
       {
         name: "description",
         content:
-          "Selected social media theme pages and personal projects — what they are, how they grew, and how they were monetized.",
+          "Selected projects — brand identity, social media, content creation, and creative work by Damian Paries.",
       },
-      { property: "og:title", content: "Projects & Theme Pages — Damian Paries" },
+      { property: "og:title", content: "Projects — Damian Paries" },
       {
         property: "og:description",
         content:
-          "Case studies on building, growing, and monetizing social media audiences.",
+          "Real projects across brand identity, content strategy, lifestyle, automotive, and music.",
       },
     ],
   }),
@@ -24,44 +23,49 @@ export const Route = createFileRoute("/projects")({
 
 const projects = [
   {
-    name: "Project One",
-    niche: "Lifestyle / Aesthetic",
-    followers: "850K",
-    growth: "0 → 850K in 14 months",
-    revenue: "5-figure monthly",
-    summary:
-      "A curated visual page built on consistent posting, format experimentation, and a tight content pillar system. Monetized through brand deals, page promotion, and an affiliate funnel.",
-    tags: ["Instagram", "Curation", "Brand Deals"],
+    name: "VAULT XI",
+    category: "Brand Identity & E-Commerce",
+    description:
+      "End-to-end brand content for Vault XI, a premium sportswear label. Handled product copywriting, social media content, business card design, and e-commerce visuals positioning the brand around luxury streetwear.",
+    tags: ["Copywriting", "Brand Identity", "E-Commerce"],
+    image:
+      "https://res.cloudinary.com/dpylvnjuj/image/upload/w_800,q_auto,f_auto/v1777824340/IMG_6493_eaftjc.jpg",
   },
   {
-    name: "Project Two",
-    niche: "Motivation / Mindset",
-    followers: "1.2M",
-    growth: "Acquired & scaled 3x",
-    revenue: "Digital products",
-    summary:
-      "Acquired underperforming and rebuilt the entire content engine. Introduced a digital product funnel that turned the page into a real business — not just a placeholder for shoutouts.",
-    tags: ["Acquisition", "Funnels", "Digital Products"],
+    name: "MASTER HUSTLE",
+    category: "Social Media & Content Strategy",
+    description:
+      "Built and managed the Master Hustle brand across social platforms. Created scroll-stopping content, grew the audience through consistent format systems, and monetized through digital products and brand partnerships.",
+    tags: ["Social Media", "Content Strategy", "Growth"],
+    image:
+      "https://res.cloudinary.com/dpylvnjuj/image/upload/w_800,q_auto,f_auto/v1777824350/IMG_1421_otcccy.png",
   },
   {
-    name: "Project Three",
-    niche: "Niche Sports",
-    followers: "420K",
-    growth: "Built from zero",
-    revenue: "Sponsorships",
-    summary:
-      "A specialist page in an underserved niche. Less competition, deeper engagement, and partnerships with brands that other accounts in the space couldn't access.",
-    tags: ["TikTok", "Reels", "Sponsorship"],
+    name: "OUTERBANKS",
+    category: "Lifestyle Content & Photography",
+    description:
+      "Visual content creation and curation for the Outerbanks lifestyle brand. Built a cohesive aesthetic across photo content, optimised for engagement and brand deal opportunities.",
+    tags: ["Content Creation", "Photography", "Lifestyle"],
+    image:
+      "https://res.cloudinary.com/dpylvnjuj/image/upload/w_800,q_auto,f_auto/v1777824204/IMG_0620_oni3c3.png",
   },
   {
-    name: "Project Four",
-    niche: "Multi-platform Brand",
-    followers: "2M+ combined",
-    growth: "Distributed system",
-    revenue: "Recurring partnerships",
-    summary:
-      "A coordinated network of accounts across platforms feeding a single brand identity. Built playbooks, hired operators, and turned content production into a repeatable workflow.",
-    tags: ["Network", "Operations", "Systems"],
+    name: "LUSSO AUTO",
+    category: "Automotive Brand Content",
+    description:
+      "Content and copywriting work for Lusso Auto, a premium automotive brand. Focused on aspirational visual storytelling and brand positioning for a high-end audience.",
+    tags: ["Copywriting", "Automotive", "Brand Content"],
+    image:
+      "https://res.cloudinary.com/dpylvnjuj/image/upload/w_800,q_auto,f_auto/v1777824258/IMG_2601_tgdpfx.png",
+  },
+  {
+    name: "NLE CHOPPA",
+    category: "Artist & Music Content",
+    description:
+      "Social media content and visual assets for NLE Choppa's digital presence. Created fan-facing content optimised for reach and engagement across Instagram and TikTok.",
+    tags: ["Music", "Social Media", "Content"],
+    image:
+      "https://res.cloudinary.com/dpylvnjuj/image/upload/w_800,q_auto,f_auto/v1777824011/IMG_7302_llthxh.png",
   },
 ];
 
@@ -71,12 +75,11 @@ function ProjectsPage() {
       <section className="container-page pt-20 md:pt-28 pb-16">
         <p className="text-sm uppercase tracking-widest text-accent">Projects</p>
         <h1 className="mt-6 text-5xl md:text-7xl leading-[0.95] text-balance max-w-4xl">
-          Pages I built. Audiences I grew. Money they made.
+          Pages I built. Audiences I grew. Brands I shaped.
         </h1>
         <p className="mt-8 max-w-2xl text-lg text-ink-soft text-pretty">
-          A selected look at the social media properties I've built and operated
-          over the past five years. Names withheld where partners prefer
-          discretion — happy to share more in a private conversation.
+          A selected look at real projects I've worked on — from brand identity
+          and e-commerce to social media content and creative direction.
         </p>
       </section>
 
@@ -88,30 +91,23 @@ function ProjectsPage() {
             variant={i % 2 === 0 ? "left" : "right"}
             className="lift grid md:grid-cols-[1fr_1.2fr] gap-8 md:gap-12 pt-12 border-t border-rule rounded-2xl bg-surface/40 p-6 md:p-8 border"
           >
-            {/* Visual placeholder */}
-            <div className="aspect-[4/5] md:aspect-auto md:min-h-[400px] rounded-lg bg-surface border border-rule flex flex-col items-center justify-center text-ink-soft">
-              <span className="font-serif text-7xl text-foreground/10">
-                0{i + 1}
-              </span>
-              <span className="text-xs uppercase tracking-widest mt-2">
-                Image placeholder
-              </span>
+            <div className="aspect-[4/5] md:aspect-auto md:min-h-[400px] rounded-lg bg-surface border border-rule overflow-hidden">
+              <img
+                src={p.image}
+                alt={p.name}
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
             </div>
 
             <div className="flex flex-col">
               <p className="text-xs uppercase tracking-widest text-accent">
-                {p.niche}
+                {p.category}
               </p>
               <h2 className="mt-3 text-4xl md:text-5xl">{p.name}</h2>
 
-              <div className="mt-6 grid grid-cols-3 gap-4 py-6 border-y border-rule">
-                <Metric icon={<Users className="size-4" />} label="Followers" value={p.followers} />
-                <Metric icon={<TrendingUp className="size-4" />} label="Growth" value={p.growth} />
-                <Metric icon={<DollarSign className="size-4" />} label="Revenue" value={p.revenue} />
-              </div>
-
               <p className="mt-6 text-ink-soft text-pretty leading-relaxed">
-                {p.summary}
+                {p.description}
               </p>
 
               <div className="mt-6 flex flex-wrap gap-2">
@@ -128,18 +124,6 @@ function ProjectsPage() {
           </Reveal>
         ))}
       </section>
-    </div>
-  );
-}
-
-function Metric({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
-  return (
-    <div>
-      <div className="flex items-center gap-1.5 text-ink-soft text-xs uppercase tracking-widest">
-        {icon}
-        {label}
-      </div>
-      <p className="mt-2 font-serif text-lg md:text-xl leading-tight">{value}</p>
     </div>
   );
 }
