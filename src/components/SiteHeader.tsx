@@ -1,12 +1,12 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X, Download } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
-const links: { to: "/" | "/work" | "/ventures" | "/about" | "/contact"; label: string; exact?: boolean }[] = [
-  { to: "/", label: "Home", exact: true },
-  { to: "/about", label: "About" },
+const links: { to: "/" | "/work" | "/projects" | "/about" | "/contact"; label: string; exact?: boolean }[] = [
+  { to: "/", label: "Index", exact: true },
   { to: "/work", label: "Work" },
-  { to: "/ventures", label: "Ventures" },
+  { to: "/projects", label: "Projects" },
+  { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ];
 
@@ -14,39 +14,35 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-rule">
-      <div className="container-page flex items-center justify-between h-14">
+    <header className="sticky top-0 z-40 glass border-b border-white/10">
+      <div className="container-page flex items-center justify-between h-16">
         <Link
           to="/"
-          className="font-serif text-lg tracking-tight"
+          className="flex items-center gap-3"
           onClick={() => setOpen(false)}
         >
-          Damian Paries
+          <span className="grid size-8 place-items-center rounded-xl bg-accent text-accent-foreground font-serif font-bold text-sm leading-none">
+            DP
+          </span>
+          <span className="font-serif text-lg tracking-tight uppercase">
+            Damian Paries
+          </span>
         </Link>
 
-        <div className="hidden md:flex items-center gap-8">
-          <nav className="flex items-center gap-7 text-[13px] font-medium uppercase tracking-[1.5px]">
-            {links.map((l) => (
-              <Link
-                key={l.to}
-                to={l.to}
-                activeOptions={{ exact: l.exact }}
-                activeProps={{ className: "text-foreground", "data-status": "active" } as never}
-                inactiveProps={{ className: "text-ink-soft" }}
-                className="nav-link transition-colors hover:text-foreground"
-              >
-                {l.label}
-              </Link>
-            ))}
-          </nav>
-          <a
-            href="#"
-            className="inline-flex items-center gap-1.5 rounded bg-primary px-3.5 py-1.5 text-xs font-medium text-primary-foreground uppercase tracking-wider transition-opacity hover:opacity-85"
-          >
-            <Download className="size-3" />
-            CV
-          </a>
-        </div>
+        <nav className="hidden md:flex items-center gap-9 text-xs font-medium uppercase tracking-[2px]">
+          {links.map((l) => (
+            <Link
+              key={l.to}
+              to={l.to}
+              activeOptions={{ exact: l.exact }}
+              activeProps={{ className: "text-foreground", "data-status": "active" } as never}
+              inactiveProps={{ className: "text-ink-soft" }}
+              className="nav-link transition-colors hover:text-foreground"
+            >
+              {l.label}
+            </Link>
+          ))}
+        </nav>
 
         <button
           aria-label="Toggle menu"
@@ -65,20 +61,13 @@ export function SiteHeader() {
                 key={l.to}
                 to={l.to}
                 activeOptions={{ exact: l.exact }}
-                activeProps={{ className: "text-foreground font-medium" }}
+                activeProps={{ className: "text-foreground" }}
                 inactiveProps={{ className: "text-ink-soft" }}
                 onClick={() => setOpen(false)}
               >
                 {l.label}
               </Link>
             ))}
-            <a
-              href="#"
-              className="inline-flex items-center gap-1.5 w-fit rounded bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
-            >
-              <Download className="size-3.5" />
-              Download CV
-            </a>
           </div>
         </nav>
       )}
