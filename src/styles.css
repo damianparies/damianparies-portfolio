@@ -274,23 +274,10 @@
     background-size: 100% 1px;
   }
 
-  /* Animated nav-link underline (reference) */
-  .nav-link {
-    position: relative;
-    transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Nav link active indicator */
+  .liquid-nav-link[data-status="active"] .liquid-nav-text {
+    color: var(--color-foreground);
   }
-  .nav-link::after {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -4px;
-    left: 0;
-    background: var(--gradient-accent);
-    transition: width 0.3s ease;
-  }
-  .nav-link:hover::after,
-  .nav-link[data-status="active"]::after { width: 100%; }
 
   .fade-in-up {
     animation: fadeInUp 0.8s ease both;
