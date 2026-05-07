@@ -8,13 +8,13 @@ export const Route = createFileRoute("/work")({
       {
         name: "description",
         content:
-          "Professional experience — e-commerce, copywriting, social media, and brand partnerships.",
+          "Professional experience in e-commerce, copywriting, social media, and brand partnerships.",
       },
       { property: "og:title", content: "Work Experience — Damian Paries" },
       {
         property: "og:description",
         content:
-          "A look at the companies and brands I've worked with.",
+          "A look at the companies and brands I have worked with.",
       },
     ],
   }),
@@ -23,37 +23,41 @@ export const Route = createFileRoute("/work")({
 
 const services = [
   {
-    title: "Audience Growth",
-    body: "Building distribution from zero — formats, hooks, posting cadence, and the systems behind them.",
+    title: "E-Commerce Copywriting",
+    body: "Writing product descriptions, promotional content, and blog posts that drive conversions and support SEO performance across a live retail platform.",
   },
   {
-    title: "Content Strategy",
-    body: "Translating a brand's positioning into a content engine that actually compounds over time.",
+    title: "Website Administration",
+    body: "Managing the backend of a retail website, coordinating with developers, identifying and logging site errors, and continuously improving the customer experience online.",
   },
   {
-    title: "Brand Partnerships",
-    body: "Connecting brands to creator audiences through campaigns built for performance, not vanity.",
+    title: "Team Leadership and Workflow",
+    body: "Leading a copywriting team by setting daily priorities, managing deadlines, coordinating with buying and marketing teams, and keeping catalogue output accurate and on time.",
   },
   {
-    title: "Operations & Systems",
-    body: "Turning ad-hoc content production into a documented, repeatable, hire-able workflow.",
+    title: "Campaign and Promotional Planning",
+    body: "Planning and executing promotional campaigns across pricing, catalogue, and web, working across multiple departments to get things live and running smoothly.",
+  },
+  {
+    title: "Digital Marketing and Audience Growth",
+    body: "Building social media audiences from zero using organic content strategy, trend research, and consistent execution across platforms including TikTok and Instagram.",
   },
 ];
 
 const clients = [
   {
     name: "Tafelberg Furnishers",
-    scope: "Senior E-Commerce Copywriter & Website Administrator. Led a team of 2 copywriters, grew the online catalogue by over 30%, and managed all promotional campaigns and website backend.",
+    scope: "Senior E-Commerce Copywriter and Website Administrator. Led a team of 2 copywriters, grew the online catalogue by over 30%, and managed all promotional campaigns and website backend.",
     year: "2025–Present",
   },
   {
     name: "Beds On Line",
-    scope: "E-Commerce Copywriter & Social Media Manager. Product listings, content creation, and cross-team collaboration with buying and marketing departments.",
+    scope: "E-Commerce Copywriter and Social Media Manager. Product listings, content creation, and cross-team collaboration with buying and marketing departments.",
     year: "2024",
   },
   {
     name: "Master Hustle",
-    scope: "Founder & Operator. Built and monetised a multi-platform social media brand generating five-figure revenue through digital products, merchandise, and brand partnerships.",
+    scope: "Founder and Operator. Built and monetised a multi-platform social media brand generating five-figure revenue through digital products, merchandise, and brand partnerships.",
     year: "2021–Present",
   },
   {
@@ -63,7 +67,7 @@ const clients = [
   },
   {
     name: "Lusso Auto",
-    scope: "Content & Copywriting. Aspirational brand storytelling for a high-end automotive brand.",
+    scope: "Content and Copywriting. Aspirational brand storytelling for a high-end automotive brand.",
     year: "",
   },
   {
@@ -76,10 +80,10 @@ const clients = [
 function WorkPage() {
   return (
     <div>
-      <section className="container-page pt-20 md:pt-28 pb-16">
+      <section className="container-page pt-24 md:pt-32 pb-16">
         <p className="text-sm uppercase tracking-widest text-accent">Work</p>
         <h1 className="mt-6 text-5xl md:text-7xl leading-[0.95] text-balance max-w-4xl">
-          Companies I've helped grow, ship, and tell their story.
+          Places I have worked, roles I have held, and the things I built along the way.
         </h1>
         <p className="mt-8 max-w-2xl text-lg text-ink-soft text-pretty">
           A short list of the kind of work I take on, and a selected archive of

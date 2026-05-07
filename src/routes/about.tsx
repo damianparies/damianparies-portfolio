@@ -9,7 +9,7 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "Damian Paries — Senior E-Commerce Copywriter, Website Administrator, and digital entrepreneur based in Cape Town, South Africa.",
+          "Damian Paries, Senior E-Commerce Copywriter, Website Administrator, and digital entrepreneur based in Cape Town, South Africa.",
       },
       { property: "og:title", content: "About — Damian Paries" },
       {
@@ -33,7 +33,7 @@ const timeline = [
   {
     year: "2022",
     title: "Audience compounds",
-    body: "Scaled multiple pages to tens of thousands of followers. Began monetizing through digital products — eBooks and habit trackers — with zero inventory cost.",
+    body: "Scaled multiple pages to tens of thousands of followers. Began monetizing through digital products such as eBooks and habit trackers with zero inventory cost.",
   },
   {
     year: "2023",
@@ -43,26 +43,26 @@ const timeline = [
   {
     year: "2024",
     title: "Beds On Line",
-    body: "Joined Beds On Line as E-Commerce Copywriter & Social Media Manager — product listings, content creation, and working alongside the buying and marketing teams.",
+    body: "Joined Beds On Line as E-Commerce Copywriter and Social Media Manager. Product listings, content creation, and working alongside the buying and marketing teams.",
   },
   {
     year: "2025",
     title: "Tafelberg Furnishers",
-    body: "Promoted into a Senior E-Commerce Copywriter & Website Administrator role. Leading a team of 2 copywriters and growing the online catalogue by over 30%.",
+    body: "Promoted into a Senior E-Commerce Copywriter and Website Administrator role. Leading a team of 2 copywriters and growing the online catalogue by over 30%.",
   },
   {
-    year: "2026 →",
-    title: "Studying & building",
-    body: "Started a Bachelor of Business Administration in Marketing Management at Stadio Higher Education, while continuing to build digital projects on the side.",
+    year: "2026",
+    title: "Tafelberg Furnishers and Studying",
+    body: "Currently serving as Senior E-Commerce Copywriter and Website Administrator at Tafelberg Furnishers while completing a Bachelor of Business Administration in Marketing Management at Stadio Higher Education.",
   },
 ];
 
 const skills = [
   "Team Leadership",
   "E-Commerce Operations",
-  "Copywriting & Editing",
+  "Copywriting and Editing",
   "Website Administration",
-  "Social Media & Content",
+  "Social Media and Content",
   "Promotional Campaigns",
   "Workflow Coordination",
   "Customer-Focused Mindset",
@@ -78,7 +78,7 @@ const stack = [
 function AboutPage() {
   return (
     <div>
-      <section className="container-page pt-20 md:pt-28 pb-16">
+      <section className="container-page pt-24 md:pt-32 pb-16">
         <p className="text-sm uppercase tracking-widest text-accent">About</p>
         <h1 className="mt-6 text-5xl md:text-7xl leading-[0.95] text-balance max-w-4xl">
           A creator who learned to operate, and an operator who never stopped creating.
@@ -103,7 +103,7 @@ function AboutPage() {
         <div className="space-y-6 text-lg text-ink-soft text-pretty leading-relaxed">
           <Reveal variant="fade">
             <p>
-              I'm <span className="text-foreground">Damian Paries</span> — a
+              I'm <span className="text-foreground">Damian Paries</span>, a
               Senior E-Commerce Copywriter and Website Administrator at
               <span className="text-foreground"> Tafelberg Furnishers</span>,
               where I lead a small copywriting team, manage the online
@@ -113,7 +113,7 @@ function AboutPage() {
           <Reveal variant="fade" delay={100}>
             <p>
               Before that, I spent years quietly building social media theme
-              pages on the side — scaling accounts to tens of thousands of
+              pages on the side, scaling accounts to tens of thousands of
               followers and turning them into real revenue through digital
               products, physical merchandise shipped worldwide, and selling
               built pages to buyers.
