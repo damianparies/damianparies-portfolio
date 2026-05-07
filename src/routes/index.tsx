@@ -23,42 +23,53 @@ export const Route = createFileRoute("/")({
 });
 
 const stats = [
-  { value: "10M+", label: "Audience reached" },
-  { value: "20+", label: "Theme pages built" },
-  { value: "5+", label: "Years operating" },
-  { value: "30+", label: "Brand partners" },
+  { value: "50M+", label: "Views generated" },
+  { value: "500k+", label: "Followers built" },
+  { value: "3+", label: "Roles held" },
+  { value: "30%+", label: "Catalogue growth" },
 ];
 
 const featured = [
   {
     year: "2025",
     title: "Tafelberg Furnishers",
-    role: "Senior Copywriter & Web Admin",
+    role: "Senior E-Commerce Copywriter and Web Administrator",
     href: "/work",
   },
   {
     year: "2024",
     title: "Beds On Line",
-    role: "E-Commerce & Social Media",
+    role: "E-Commerce Copywriter and Social Media Manager",
     href: "/work",
   },
   {
-    year: "2021–Present",
-    title: "Master Hustle",
-    role: "Founder & Operator",
+    year: "2021–2023",
+    title: "Self-Employed",
+    role: "Social Media Entrepreneur and Digital Marketer",
     href: "/projects",
   },
+];
+
+const skills = [
+  "WordPress", "Canva", "Shopify", "Gumroad", "Teespring", "MS Excel",
+  "Notion", "Grammarly", "Capcut", "Loom", "ChatGPT", "Claude",
+  "Midjourney", "ElevenLabs", "TikTok", "Instagram", "LinkedIn",
+];
+
+const phoneHighlights = [
+  { label: "Online Catalogue Growth", value: "30%+" },
+  { label: "Social Followers Built", value: "500k+" },
+  { label: "Total Views Generated", value: "50M+" },
+  { label: "Brands Partnered With", value: "30+" },
+  { label: "Theme Pages Built", value: "20+" },
 ];
 
 function Index() {
   return (
     <div>
       {/* HERO */}
-      <section className="container-page pt-20 md:pt-32 pb-20 md:pb-32">
-        <p className="text-sm uppercase tracking-widest text-accent fade-in-up">
-          Portfolio · Est. 2020
-        </p>
-        <h1 className="mt-6 text-5xl sm:text-6xl md:text-8xl leading-[0.95] text-balance fade-in-up">
+      <section className="container-page pt-24 md:pt-36 pb-20 md:pb-32">
+        <h1 className="text-5xl sm:text-6xl md:text-8xl leading-[0.95] text-balance fade-in-up">
           Building audiences,
           <br />
           brands, and the
@@ -70,9 +81,7 @@ function Index() {
 
         <div className="mt-10 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
           <p className="max-w-xl text-lg text-ink-soft text-pretty fade-in-up">
-            I'm Damian Paries — an operator and creator who has spent the past
-            five years growing social media theme pages, monetizing audiences,
-            and partnering with companies to ship sharp digital work.
+            I'm Damian Paries, a Senior E-Commerce Copywriter and Website Administrator based in Cape Town. I lead catalogue operations at Tafelberg Furnishers, manage a team of copywriters, and keep the digital side of a growing retail brand running cleanly. Before stepping into this role, I spent several years building social media audiences entirely from scratch, reaching over 500 000 followers and 50 million views across different niches. I sit at the intersection of words, web operations, and marketing.
           </p>
           <div className="flex gap-3">
             <Link
@@ -91,8 +100,46 @@ function Index() {
         </div>
       </section>
 
+      {/* CURRENTLY */}
+      <section className="container-page pb-20">
+        <Reveal variant="up">
+          <div className="rounded-2xl border border-rule bg-surface/60 backdrop-blur-sm p-8 md:p-10">
+            <p className="text-xs uppercase tracking-widest text-accent mb-6">Currently</p>
+            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+              <div>
+                <p className="text-xs text-ink-soft uppercase tracking-wider">Role</p>
+                <p className="mt-1 text-foreground text-sm">Senior E-Commerce Copywriter and Web Administrator</p>
+              </div>
+              <div>
+                <p className="text-xs text-ink-soft uppercase tracking-wider">Company</p>
+                <p className="mt-1 text-foreground text-sm">Tafelberg Furnishers (Pty) Ltd</p>
+              </div>
+              <div>
+                <p className="text-xs text-ink-soft uppercase tracking-wider">Studying</p>
+                <p className="mt-1 text-foreground text-sm">Bachelor of Business Administration in Marketing Management, Stadio Higher Education</p>
+              </div>
+              <div>
+                <p className="text-xs text-ink-soft uppercase tracking-wider">Based in</p>
+                <p className="mt-1 text-foreground text-sm">Cape Town, South Africa</p>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* SKILLS MARQUEE */}
+      <section className="border-y border-rule overflow-hidden py-5">
+        <div className="marquee-track">
+          {[...skills, ...skills].map((s, i) => (
+            <span key={i} className="mx-6 text-sm uppercase tracking-widest text-ink-soft whitespace-nowrap">
+              {s}
+            </span>
+          ))}
+        </div>
+      </section>
+
       {/* STATS */}
-      <section className="border-y border-rule bg-surface/60 backdrop-blur-sm">
+      <section className="border-b border-rule bg-surface/60 backdrop-blur-sm">
         <div className="container-page grid grid-cols-2 md:grid-cols-4 divide-x divide-rule">
           {stats.map((s, i) => (
             <Reveal key={s.label} variant="scale" delay={i * 100} className="py-10 px-4 first:pl-0 text-center md:text-left">
@@ -135,18 +182,36 @@ function Index() {
           ))}
           <li className="border-t border-rule" />
         </ul>
+
+        {/* PHONE MOCKUP */}
+        <div className="mt-16 flex justify-center">
+          <Reveal variant="up" delay={200}>
+            <div className="phone-mockup">
+              <div className="phone-notch" />
+              <div className="phone-screen">
+                <p className="text-xs uppercase tracking-widest text-accent mb-4">Work Highlights</p>
+                <div className="space-y-3">
+                  {phoneHighlights.map((h) => (
+                    <div key={h.label} className="flex items-center justify-between border-b border-rule/50 pb-2">
+                      <span className="text-xs text-ink-soft">{h.label}</span>
+                      <span className="font-serif text-lg text-foreground">{h.value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
       </section>
 
-      {/* QUOTE / PHILOSOPHY */}
+      {/* QUOTE */}
       <section className="container-page py-20 md:py-32 border-t border-rule">
         <Reveal as="blockquote" variant="blur" className="max-w-4xl">
           <p className="font-serif text-3xl md:text-5xl leading-tight text-balance">
-            "Distribution is a craft. I treat every page, post, and product
-            launch like a small <em className="text-accent not-italic">compounding bet</em> —
-            built quietly, measured honestly."
+            "Good copy moves product. Good systems move teams. I have spent the last few years doing both."
           </p>
           <footer className="mt-8 text-sm text-ink-soft uppercase tracking-widest">
-            — Damian Paries
+            Damian Paries
           </footer>
         </Reveal>
       </section>

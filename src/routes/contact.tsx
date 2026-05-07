@@ -9,7 +9,7 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Get in touch with Damian Paries — email, phone, LinkedIn, or Instagram.",
+          "Get in touch with Damian Paries via email, phone, LinkedIn, or Instagram.",
       },
       { property: "og:title", content: "Contact — Damian Paries" },
       {
@@ -34,12 +34,12 @@ const channels = [
     value: "+27 66 207 7888",
     href: "tel:+27662077888",
     icon: Phone,
-    note: "Local: 066 207 7888 · International: +27 66 207 7888",
+    note: "Local: 066 207 7888. International: +27 66 207 7888",
   },
   {
     label: "LinkedIn",
-    value: "linkedin.com/in/damianparies",
-    href: "https://www.linkedin.com/in/damianparies/",
+    value: "linkedin.com/in/damian-paries",
+    href: "https://www.linkedin.com/in/damian-paries",
     icon: Linkedin,
     note: "Connect for work history and partnerships.",
   },
@@ -55,7 +55,7 @@ const channels = [
 function ContactPage() {
   return (
     <div>
-      <section className="container-page pt-20 md:pt-28 pb-16">
+      <section className="container-page pt-24 md:pt-32 pb-16">
         <Reveal variant="fade">
           <p className="text-sm uppercase tracking-widest text-accent">Contact</p>
         </Reveal>
@@ -67,7 +67,7 @@ function ContactPage() {
         <Reveal variant="up" delay={160}>
           <p className="mt-8 max-w-2xl text-lg text-ink-soft text-pretty">
             Whether you're a brand looking for distribution, a founder building
-            something new, or a creator who wants to compare notes — pick
+            something new, or a creator who wants to compare notes, pick
             whichever channel works for you. I read every message.
           </p>
         </Reveal>
@@ -115,7 +115,7 @@ function ContactPage() {
 
         <Reveal variant="fade" delay={200}>
           <p className="mt-10 text-sm text-ink-soft">
-            Currently based in South Africa · Available remotely worldwide ·
+            Currently based in South Africa. Available remotely worldwide.
             Open to select projects in 2026.
           </p>
         </Reveal>

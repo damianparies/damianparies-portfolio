@@ -15,7 +15,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 glass border-b border-white/10">
+    <header className="fixed top-0 left-0 right-0 z-40 header-glass border-b border-white/10">
       <div className="container-page flex items-center justify-between h-16">
         <Link
           to="/"
@@ -38,9 +38,9 @@ export function SiteHeader() {
               activeOptions={{ exact: l.exact }}
               activeProps={{ className: "text-foreground", "data-status": "active" } as never}
               inactiveProps={{ className: "text-ink-soft" }}
-              className="nav-link transition-colors hover:text-foreground"
+              className="liquid-nav-link transition-colors hover:text-foreground"
             >
-              {l.label}
+              <span className="liquid-nav-text">{l.label}</span>
             </Link>
           ))}
         </nav>
@@ -55,7 +55,7 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <nav className="md:hidden border-t border-rule bg-background">
+        <nav className="md:hidden border-t border-rule bg-background/90 backdrop-blur-xl">
           <div className="container-page py-4 flex flex-col gap-4 text-base">
             {links.map((l) => (
               <Link
