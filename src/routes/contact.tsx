@@ -28,6 +28,7 @@ const channels = [
     href: "mailto:damianparies@gmail.com",
     icon: Mail,
     note: "Best for proposals, briefs, and longer notes.",
+
   },
   {
     label: "Phone",
