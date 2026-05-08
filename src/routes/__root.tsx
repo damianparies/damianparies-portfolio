@@ -1,5 +1,5 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
-import { SiteHeader } from "@/components/SiteHeader";
+import { AnimatedNavbar } from "@/components/AnimatedNavbar";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { CustomCursor } from "@/components/CustomCursor";
@@ -81,7 +81,7 @@ function RootComponent() {
     <div className="flex min-h-screen flex-col">
       <ScrollProgress />
       <CustomCursor />
-      <SiteHeader />
+      <AnimatedNavbar />
       <main className="flex-1 pt-16">
         <Outlet />
       </main>
