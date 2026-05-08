@@ -1,6 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Reveal } from "@/components/Reveal";
+import { LiquidButton } from "@/components/ui/liquid-glass-button";
+import { BrandMarquee } from "@/components/BrandMarquee";
+import { StatsChart } from "@/components/StatsChart";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -21,13 +26,6 @@ export const Route = createFileRoute("/")({
   }),
   component: Index,
 });
-
-const stats = [
-  { value: "50M+", label: "Views generated" },
-  { value: "500k+", label: "Followers built" },
-  { value: "3+", label: "Roles held" },
-  { value: "30%+", label: "Catalogue growth" },
-];
 
 const featured = [
   {
@@ -50,12 +48,6 @@ const featured = [
   },
 ];
 
-const skills = [
-  "WordPress", "Canva", "Shopify", "Gumroad", "Teespring", "MS Excel",
-  "Notion", "Grammarly", "Capcut", "Loom", "ChatGPT", "Claude",
-  "Midjourney", "ElevenLabs", "TikTok", "Instagram", "LinkedIn",
-];
-
 const phoneHighlights = [
   { label: "Online Catalogue Growth", value: "30%+" },
   { label: "Social Followers Built", value: "500k+" },
@@ -65,36 +57,69 @@ const phoneHighlights = [
 ];
 
 function Index() {
+  const [titleNumber, setTitleNumber] = useState(0);
+  const titles = useMemo(
+    () => ["audiences", "brands", "content", "systems", "growth"],
+    []
+  );
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setTitleNumber(titleNumber === titles.length - 1 ? 0 : titleNumber + 1);
+    }, 2000);
+    return () => clearTimeout(timeoutId);
+  }, [titleNumber, titles]);
+
   return (
     <div>
       {/* HERO */}
-      <section className="container-page pt-24 md:pt-36 pb-20 md:pb-32">
-        <h1 className="text-5xl sm:text-6xl md:text-8xl leading-[0.95] text-balance fade-in-up">
-          Building audiences,
-          <br />
-          brands, and the
-          <br />
-          quiet machines
-          <br />
-          <em className="text-gradient-accent not-italic">behind them.</em>
-        </h1>
+      <section className="container-page pt-28 md:pt-40 pb-20 md:pb-32">
+        <div className="flex flex-col items-center text-center gap-8">
+          <div>
+            <span className="inline-flex items-center gap-2 rounded-full border border-rule bg-surface/60 backdrop-blur-sm px-4 py-1.5 text-xs text-ink-soft uppercase tracking-widest">
+              Builder, Operator, Creator
+            </span>
+          </div>
 
-        <div className="mt-10 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
-          <p className="max-w-xl text-lg text-ink-soft text-pretty fade-in-up">
-            I'm Damian Paries, a Senior E-Commerce Copywriter and Website Administrator based in Cape Town. I lead catalogue operations at Tafelberg Furnishers, manage a team of copywriters, and keep the digital side of a growing retail brand running cleanly. Before stepping into this role, I spent several years building social media audiences entirely from scratch, reaching over 500 000 followers and 50 million views across different niches. I sit at the intersection of words, web operations, and marketing.
-          </p>
-          <div className="flex gap-3">
-            <Link
-              to="/work"
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm text-primary-foreground transition-opacity hover:opacity-90"
-            >
-              See the work <ArrowUpRight className="size-4" />
+          <div className="flex flex-col gap-4">
+            <h1 className="text-5xl sm:text-6xl md:text-8xl leading-[0.95] font-serif tracking-tight fade-in-up">
+              Building
+              <span className="relative inline-flex w-full justify-center overflow-hidden text-accent md:pb-4 md:pt-1" style={{ height: "1.2em" }}>
+                <AnimatePresence mode="wait">
+                  {titles.map((title, index) =>
+                    index === titleNumber ? (
+                      <motion.span
+                        key={title}
+                        className="absolute font-serif italic"
+                        initial={{ opacity: 0, y: -40 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 40 }}
+                        transition={{ type: "spring", stiffness: 100, damping: 15 }}
+                      >
+                        {title}
+                      </motion.span>
+                    ) : null
+                  )}
+                </AnimatePresence>
+              </span>
+              <br className="hidden md:block" />
+              from scratch.
+            </h1>
+            <p className="max-w-2xl mx-auto text-lg text-ink-soft text-pretty fade-in-up">
+              I'm Damian Paries, a Senior E-Commerce Copywriter and Website Administrator based in Cape Town. I lead catalogue operations at Tafelberg Furnishers, manage a team of copywriters, and keep the digital side of a growing retail brand running cleanly. Before stepping into this role, I spent several years building social media audiences entirely from scratch, reaching over 500 000 followers and 50 million views across different niches.
+            </p>
+          </div>
+
+          <div className="flex gap-4 flex-wrap justify-center fade-in-up">
+            <Link to="/work">
+              <LiquidButton size="xl">
+                See the work <ArrowUpRight className="size-4" />
+              </LiquidButton>
             </Link>
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 rounded-full border border-foreground/20 px-5 py-3 text-sm transition-colors hover:bg-foreground hover:text-background"
-            >
-              Get in touch
+            <Link to="/contact">
+              <LiquidButton variant="outline" size="xl">
+                Get in touch
+              </LiquidButton>
             </Link>
           </div>
         </div>
@@ -127,30 +152,11 @@ function Index() {
         </Reveal>
       </section>
 
-      {/* SKILLS MARQUEE */}
-      <section className="border-y border-rule overflow-hidden py-5">
-        <div className="marquee-track">
-          {[...skills, ...skills].map((s, i) => (
-            <span key={i} className="mx-6 text-sm uppercase tracking-widest text-ink-soft whitespace-nowrap">
-              {s}
-            </span>
-          ))}
-        </div>
-      </section>
+      {/* BRAND MARQUEE */}
+      <BrandMarquee />
 
-      {/* STATS */}
-      <section className="border-b border-rule bg-surface/60 backdrop-blur-sm">
-        <div className="container-page grid grid-cols-2 md:grid-cols-4 divide-x divide-rule">
-          {stats.map((s, i) => (
-            <Reveal key={s.label} variant="scale" delay={i * 100} className="py-10 px-4 first:pl-0 text-center md:text-left">
-              <p className="font-serif text-4xl md:text-5xl">{s.value}</p>
-              <p className="mt-2 text-xs uppercase tracking-widest text-ink-soft">
-                {s.label}
-              </p>
-            </Reveal>
-          ))}
-        </div>
-      </section>
+      {/* STATS CHART */}
+      <StatsChart />
 
       {/* FEATURED INDEX */}
       <section className="container-page py-20 md:py-32">
