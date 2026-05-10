@@ -3,25 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 
-const AnimatedNavLink = ({ to, children, onClick }: { to: string; children: React.ReactNode; onClick?: () => void }) => {
-  return (
-    <Link
-      to={to as any}
-      onClick={onClick}
-      className="relative overflow-hidden inline-flex items-start h-5 group text-sm"
-    >
-      <motion.span
-        className="flex flex-col text-ink-soft group-hover:text-foreground transition-colors"
-        whileHover={{ y: -20 }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
-      >
-        <span className="h-5 flex items-center">{children}</span>
-        <span className="h-5 flex items-center text-accent">{children}</span>
-      </motion.span>
-    </Link>
-  );
-};
-
 const links = [
   { to: "/", label: "Home" },
   { to: "/work", label: "Work" },
@@ -29,14 +10,12 @@ const links = [
   { to: "/gallery", label: "Gallery" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
-];
+] as const;
 
 export function AnimatedNavbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [headerShapeClass, setHeaderShapeClass] = useState("rounded-full");
   const shapeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const toggleMenu = () => setIsOpen(!isOpen);
 
   useEffect(() => {
     if (shapeTimeoutRef.current) clearTimeout(shapeTimeoutRef.current);
@@ -57,7 +36,6 @@ export function AnimatedNavbar() {
           headerShapeClass
         )}
       >
-        {/* Main bar */}
         <div className="flex items-center justify-between px-5 py-3">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5" onClick={() => setIsOpen(false)}>
@@ -70,24 +48,23 @@ export function AnimatedNavbar() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden md:flex items-center gap-7">
             {links.map((l) => (
-              <AnimatedNavLink key={l.to} to={l.to}>{l.label}</AnimatedNavLink>
+              <Link
+                key={l.to}
+                to={l.to}
+                activeOptions={{ exact: l.to === "/" }}
+                activeProps={{ className: "text-foreground" }}
+                inactiveProps={{ className: "text-ink-soft" }}
+                className="text-sm transition-colors hover:text-foreground"
+              >
+                {l.label}
+              </Link>
             ))}
           </nav>
 
-          {/* Desktop CTAs */}
-          <div className="hidden md:flex items-center gap-2">
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-accent text-accent-foreground px-4 py-2 text-sm font-medium transition-transform hover:scale-105"
-            >
-              Get In Touch
-            </Link>
-          </div>
-
           {/* Mobile hamburger */}
-          <button className="md:hidden p-2 -mr-2 text-foreground" onClick={toggleMenu} aria-label="Toggle menu">
+          <button className="md:hidden p-2 -mr-2 text-foreground" onClick={() => setIsOpen((o) => !o)} aria-label="Toggle menu">
             {isOpen ? (
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
             ) : (
@@ -110,22 +87,16 @@ export function AnimatedNavbar() {
                 {links.map((l) => (
                   <Link
                     key={l.to}
-                    to={l.to as any}
-                    className="text-sm text-ink-soft hover:text-foreground transition-colors py-1"
+                    to={l.to}
+                    activeOptions={{ exact: l.to === "/" }}
+                    activeProps={{ className: "text-foreground" }}
+                    inactiveProps={{ className: "text-ink-soft" }}
+                    className="text-sm transition-colors py-1"
                     onClick={() => setIsOpen(false)}
                   >
                     {l.label}
                   </Link>
                 ))}
-                <div className="pt-2 flex gap-2">
-                  <Link
-                    to="/contact"
-                    className="inline-flex items-center justify-center rounded-full bg-accent text-accent-foreground px-4 py-2 text-sm font-medium w-full"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Get In Touch
-                  </Link>
-                </div>
               </div>
             </motion.div>
           )}
