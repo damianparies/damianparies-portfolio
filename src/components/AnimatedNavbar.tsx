@@ -8,10 +8,10 @@ const AnimatedNavLink = ({ to, children, onClick }: { to: string; children: Reac
     <Link
       to={to as any}
       onClick={onClick}
-      className="relative overflow-hidden inline-flex items-center h-8 group"
+      className="relative overflow-hidden inline-flex items-start h-5 group text-sm"
     >
       <motion.span
-        className="flex flex-col text-sm text-ink-soft group-hover:text-foreground transition-colors"
+        className="flex flex-col text-ink-soft group-hover:text-foreground transition-colors"
         whileHover={{ y: -20 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
       >
