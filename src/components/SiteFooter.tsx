@@ -29,7 +29,7 @@ export function SiteFooter() {
 
         <div className="flex flex-col gap-2">
           <p className="text-ink-soft uppercase tracking-widest text-xs mb-1">Elsewhere</p>
-          <a href="https://www.linkedin.com/in/damian-paries" target="_blank" rel="noopener noreferrer" className="link-underline w-fit">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/damianparies/" target="_blank" rel="noopener noreferrer" className="link-underline w-fit">LinkedIn</a>
           <a href="https://instagram.com/damianparies" target="_blank" rel="noopener noreferrer" className="link-underline w-fit">Instagram</a>
           <a href="mailto:damianparies@gmail.com" className="link-underline w-fit">Email</a>
         </div>
