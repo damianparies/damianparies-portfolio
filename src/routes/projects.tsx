@@ -160,15 +160,13 @@ function ProjectsPage() {
             {p.slug ? (
               <>
                 <Link
-                  to={"/projects/$slug" as any}
-                  params={{ slug: p.slug } as any}
+                  to={`/projects/${p.slug}` as any}
                   className="aspect-[4/5] md:aspect-auto md:min-h-[400px] rounded-lg bg-surface border border-rule overflow-hidden block"
                 >
                   <img src={p.image} alt={p.name} className="h-full w-full object-cover" loading="lazy" />
                 </Link>
                 <Link
-                  to={"/projects/$slug" as any}
-                  params={{ slug: p.slug } as any}
+                  to={`/projects/${p.slug}` as any}
                   className="flex flex-col"
                 >
                   <p className="text-xs uppercase tracking-widest text-accent">{p.category}</p>
