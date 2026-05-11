@@ -25,6 +25,48 @@ export const Route = createFileRoute("/projects")({
 
 const projects = [
   {
+    name: "TAFELBERG FURNISHERS",
+    slug: "tafelberg-furnishers",
+    category: "E-Commerce & Team Leadership",
+    description:
+      "Senior E-Commerce Copywriter and Website Administrator. Led copywriting team, grew the online catalogue by 30%+, and managed promotional campaigns across the brand.",
+    tags: ["Copywriting", "Team Leadership", "E-Commerce"],
+    image:
+      "https://res.cloudinary.com/dpylvnjuj/image/upload/w_800,q_auto,f_auto/v1777824340/IMG_6493_eaftjc.jpg",
+    details: {
+      tools: ["WordPress", "Canva", "Notion", "MS Excel"],
+      outcomes: "Grew the online catalogue by over 30%, led a team of copywriters, and shipped recurring promotional campaigns.",
+    },
+  },
+  {
+    name: "BEDS ON LINE",
+    slug: "beds-on-line",
+    category: "E-Commerce & Social Media",
+    description:
+      "E-Commerce Copywriter and Social Media Manager. Created product listings, managed TikTok, Instagram and Facebook accounts, and ran promotional campaigns end to end.",
+    tags: ["Copywriting", "Social Media", "E-Commerce"],
+    image:
+      "https://res.cloudinary.com/dpylvnjuj/image/upload/w_800,q_auto,f_auto/v1777824350/IMG_1421_otcccy.png",
+    details: {
+      tools: ["WordPress", "Canva", "CapCut", "TikTok"],
+      outcomes: "Built consistent social presence and grew product engagement month over month.",
+    },
+  },
+  {
+    name: "SOCIAL MEDIA & DIGITAL MARKETING",
+    slug: "social-media-entrepreneur",
+    category: "Self-Employed Entrepreneur",
+    description:
+      "Built and scaled multiple faceless theme pages from zero to 500k+ followers. Sold one TikTok asset to a US jewellery brand and shipped digital and physical products globally.",
+    tags: ["Audience Growth", "Digital Products", "E-Commerce"],
+    image:
+      "https://res.cloudinary.com/dpylvnjuj/image/upload/w_800,q_auto,f_auto/v1777824011/IMG_7302_llthxh.png",
+    details: {
+      tools: ["TikTok", "Instagram", "Gumroad", "Shopify"],
+      outcomes: "500k+ followers, ~50M annual views, multiple monetised digital and physical products.",
+    },
+  },
+  {
     name: "VAULT XI",
     category: "Brand Identity and E-Commerce",
     description:
