@@ -16,6 +16,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProjectsTafelbergFurnishersRouteImport } from './routes/projects.tafelberg-furnishers'
+import { Route as ProjectsBedsOnLineRouteImport } from './routes/projects.beds-on-line'
 
 const WorkRoute = WorkRouteImport.update({
   id: '/work',
@@ -53,6 +54,11 @@ const ProjectsTafelbergFurnishersRoute =
     path: '/tafelberg-furnishers',
     getParentRoute: () => ProjectsRoute,
   } as any)
+const ProjectsBedsOnLineRoute = ProjectsBedsOnLineRouteImport.update({
+  id: '/beds-on-line',
+  path: '/beds-on-line',
+  getParentRoute: () => ProjectsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -61,6 +67,7 @@ export interface FileRoutesByFullPath {
   '/gallery': typeof GalleryRoute
   '/projects': typeof ProjectsRouteWithChildren
   '/work': typeof WorkRoute
+  '/projects/beds-on-line': typeof ProjectsBedsOnLineRoute
   '/projects/tafelberg-furnishers': typeof ProjectsTafelbergFurnishersRoute
 }
 export interface FileRoutesByTo {
@@ -70,6 +77,7 @@ export interface FileRoutesByTo {
   '/gallery': typeof GalleryRoute
   '/projects': typeof ProjectsRouteWithChildren
   '/work': typeof WorkRoute
+  '/projects/beds-on-line': typeof ProjectsBedsOnLineRoute
   '/projects/tafelberg-furnishers': typeof ProjectsTafelbergFurnishersRoute
 }
 export interface FileRoutesById {
@@ -80,6 +88,7 @@ export interface FileRoutesById {
   '/gallery': typeof GalleryRoute
   '/projects': typeof ProjectsRouteWithChildren
   '/work': typeof WorkRoute
+  '/projects/beds-on-line': typeof ProjectsBedsOnLineRoute
   '/projects/tafelberg-furnishers': typeof ProjectsTafelbergFurnishersRoute
 }
 export interface FileRouteTypes {
@@ -91,6 +100,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/projects'
     | '/work'
+    | '/projects/beds-on-line'
     | '/projects/tafelberg-furnishers'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -100,6 +110,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/projects'
     | '/work'
+    | '/projects/beds-on-line'
     | '/projects/tafelberg-furnishers'
   id:
     | '__root__'
@@ -109,6 +120,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/projects'
     | '/work'
+    | '/projects/beds-on-line'
     | '/projects/tafelberg-furnishers'
   fileRoutesById: FileRoutesById
 }
@@ -172,14 +184,23 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsTafelbergFurnishersRouteImport
       parentRoute: typeof ProjectsRoute
     }
+    '/projects/beds-on-line': {
+      id: '/projects/beds-on-line'
+      path: '/beds-on-line'
+      fullPath: '/projects/beds-on-line'
+      preLoaderRoute: typeof ProjectsBedsOnLineRouteImport
+      parentRoute: typeof ProjectsRoute
+    }
   }
 }
 
 interface ProjectsRouteChildren {
+  ProjectsBedsOnLineRoute: typeof ProjectsBedsOnLineRoute
   ProjectsTafelbergFurnishersRoute: typeof ProjectsTafelbergFurnishersRoute
 }
 
 const ProjectsRouteChildren: ProjectsRouteChildren = {
+  ProjectsBedsOnLineRoute: ProjectsBedsOnLineRoute,
   ProjectsTafelbergFurnishersRoute: ProjectsTafelbergFurnishersRoute,
 }
 
