@@ -16,6 +16,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProjectsTafelbergFurnishersRouteImport } from './routes/projects.tafelberg-furnishers'
+import { Route as ProjectsSocialMediaEntrepreneurRouteImport } from './routes/projects.social-media-entrepreneur'
 import { Route as ProjectsBedsOnLineRouteImport } from './routes/projects.beds-on-line'
 
 const WorkRoute = WorkRouteImport.update({
@@ -54,6 +55,12 @@ const ProjectsTafelbergFurnishersRoute =
     path: '/tafelberg-furnishers',
     getParentRoute: () => ProjectsRoute,
   } as any)
+const ProjectsSocialMediaEntrepreneurRoute =
+  ProjectsSocialMediaEntrepreneurRouteImport.update({
+    id: '/social-media-entrepreneur',
+    path: '/social-media-entrepreneur',
+    getParentRoute: () => ProjectsRoute,
+  } as any)
 const ProjectsBedsOnLineRoute = ProjectsBedsOnLineRouteImport.update({
   id: '/beds-on-line',
   path: '/beds-on-line',
@@ -68,6 +75,7 @@ export interface FileRoutesByFullPath {
   '/projects': typeof ProjectsRouteWithChildren
   '/work': typeof WorkRoute
   '/projects/beds-on-line': typeof ProjectsBedsOnLineRoute
+  '/projects/social-media-entrepreneur': typeof ProjectsSocialMediaEntrepreneurRoute
   '/projects/tafelberg-furnishers': typeof ProjectsTafelbergFurnishersRoute
 }
 export interface FileRoutesByTo {
@@ -78,6 +86,7 @@ export interface FileRoutesByTo {
   '/projects': typeof ProjectsRouteWithChildren
   '/work': typeof WorkRoute
   '/projects/beds-on-line': typeof ProjectsBedsOnLineRoute
+  '/projects/social-media-entrepreneur': typeof ProjectsSocialMediaEntrepreneurRoute
   '/projects/tafelberg-furnishers': typeof ProjectsTafelbergFurnishersRoute
 }
 export interface FileRoutesById {
@@ -89,6 +98,7 @@ export interface FileRoutesById {
   '/projects': typeof ProjectsRouteWithChildren
   '/work': typeof WorkRoute
   '/projects/beds-on-line': typeof ProjectsBedsOnLineRoute
+  '/projects/social-media-entrepreneur': typeof ProjectsSocialMediaEntrepreneurRoute
   '/projects/tafelberg-furnishers': typeof ProjectsTafelbergFurnishersRoute
 }
 export interface FileRouteTypes {
@@ -101,6 +111,7 @@ export interface FileRouteTypes {
     | '/projects'
     | '/work'
     | '/projects/beds-on-line'
+    | '/projects/social-media-entrepreneur'
     | '/projects/tafelberg-furnishers'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -111,6 +122,7 @@ export interface FileRouteTypes {
     | '/projects'
     | '/work'
     | '/projects/beds-on-line'
+    | '/projects/social-media-entrepreneur'
     | '/projects/tafelberg-furnishers'
   id:
     | '__root__'
@@ -121,6 +133,7 @@ export interface FileRouteTypes {
     | '/projects'
     | '/work'
     | '/projects/beds-on-line'
+    | '/projects/social-media-entrepreneur'
     | '/projects/tafelberg-furnishers'
   fileRoutesById: FileRoutesById
 }
@@ -184,6 +197,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsTafelbergFurnishersRouteImport
       parentRoute: typeof ProjectsRoute
     }
+    '/projects/social-media-entrepreneur': {
+      id: '/projects/social-media-entrepreneur'
+      path: '/social-media-entrepreneur'
+      fullPath: '/projects/social-media-entrepreneur'
+      preLoaderRoute: typeof ProjectsSocialMediaEntrepreneurRouteImport
+      parentRoute: typeof ProjectsRoute
+    }
     '/projects/beds-on-line': {
       id: '/projects/beds-on-line'
       path: '/beds-on-line'
@@ -196,11 +216,13 @@ declare module '@tanstack/react-router' {
 
 interface ProjectsRouteChildren {
   ProjectsBedsOnLineRoute: typeof ProjectsBedsOnLineRoute
+  ProjectsSocialMediaEntrepreneurRoute: typeof ProjectsSocialMediaEntrepreneurRoute
   ProjectsTafelbergFurnishersRoute: typeof ProjectsTafelbergFurnishersRoute
 }
 
 const ProjectsRouteChildren: ProjectsRouteChildren = {
   ProjectsBedsOnLineRoute: ProjectsBedsOnLineRoute,
+  ProjectsSocialMediaEntrepreneurRoute: ProjectsSocialMediaEntrepreneurRoute,
   ProjectsTafelbergFurnishersRoute: ProjectsTafelbergFurnishersRoute,
 }
 
