@@ -157,44 +157,57 @@ function ProjectsPage() {
             variant={i % 2 === 0 ? "left" : "right"}
             className="lift grid md:grid-cols-[1fr_1.2fr] gap-8 md:gap-12 pt-12 border-t border-rule rounded-2xl bg-surface/40 p-6 md:p-8 border cursor-pointer"
           >
-            <div
-              className="aspect-[4/5] md:aspect-auto md:min-h-[400px] rounded-lg bg-surface border border-rule overflow-hidden"
-              onClick={() => setSelected(i)}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => e.key === "Enter" && setSelected(i)}
-            >
-              <img
-                src={p.image}
-                alt={p.name}
-                className="h-full w-full object-cover"
-                loading="lazy"
-              />
-            </div>
-
-            <div className="flex flex-col" onClick={() => setSelected(i)} role="button" tabIndex={0} onKeyDown={(e) => e.key === "Enter" && setSelected(i)}>
-              <p className="text-xs uppercase tracking-widest text-accent">
-                {p.category}
-              </p>
-              <h2 className="mt-3 text-4xl md:text-5xl">{p.name}</h2>
-
-              <p className="mt-6 text-ink-soft text-pretty leading-relaxed">
-                {p.description}
-              </p>
-
-              <div className="mt-6 flex flex-wrap gap-2">
-                {p.tags.map((t) => (
-                  <span
-                    key={t}
-                    className="text-xs px-3 py-1 rounded-full border border-rule text-ink-soft"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-
-              <p className="mt-4 text-xs text-accent uppercase tracking-widest">Click to view details →</p>
-            </div>
+            {p.slug ? (
+              <>
+                <Link
+                  to={"/projects/$slug" as any}
+                  params={{ slug: p.slug } as any}
+                  className="aspect-[4/5] md:aspect-auto md:min-h-[400px] rounded-lg bg-surface border border-rule overflow-hidden block"
+                >
+                  <img src={p.image} alt={p.name} className="h-full w-full object-cover" loading="lazy" />
+                </Link>
+                <Link
+                  to={"/projects/$slug" as any}
+                  params={{ slug: p.slug } as any}
+                  className="flex flex-col"
+                >
+                  <p className="text-xs uppercase tracking-widest text-accent">{p.category}</p>
+                  <h2 className="mt-3 text-4xl md:text-5xl">{p.name}</h2>
+                  <p className="mt-6 text-ink-soft text-pretty leading-relaxed">{p.description}</p>
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {p.tags.map((t) => (
+                      <span key={t} className="text-xs px-3 py-1 rounded-full border border-rule text-ink-soft">{t}</span>
+                    ))}
+                  </div>
+                  <p className="mt-4 inline-flex items-center gap-1 text-xs text-accent uppercase tracking-widest">
+                    View case study <ArrowUpRight className="size-3.5" />
+                  </p>
+                </Link>
+              </>
+            ) : (
+              <>
+                <div
+                  className="aspect-[4/5] md:aspect-auto md:min-h-[400px] rounded-lg bg-surface border border-rule overflow-hidden"
+                  onClick={() => setSelected(i)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => e.key === "Enter" && setSelected(i)}
+                >
+                  <img src={p.image} alt={p.name} className="h-full w-full object-cover" loading="lazy" />
+                </div>
+                <div className="flex flex-col" onClick={() => setSelected(i)} role="button" tabIndex={0} onKeyDown={(e) => e.key === "Enter" && setSelected(i)}>
+                  <p className="text-xs uppercase tracking-widest text-accent">{p.category}</p>
+                  <h2 className="mt-3 text-4xl md:text-5xl">{p.name}</h2>
+                  <p className="mt-6 text-ink-soft text-pretty leading-relaxed">{p.description}</p>
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {p.tags.map((t) => (
+                      <span key={t} className="text-xs px-3 py-1 rounded-full border border-rule text-ink-soft">{t}</span>
+                    ))}
+                  </div>
+                  <p className="mt-4 text-xs text-accent uppercase tracking-widest">Click to view details →</p>
+                </div>
+              </>
+            )}
           </Reveal>
         ))}
       </section>
