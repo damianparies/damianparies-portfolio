@@ -1,6 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/projects")({
