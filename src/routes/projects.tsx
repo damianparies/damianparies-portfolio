@@ -1,6 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/projects")({
@@ -24,6 +24,48 @@ export const Route = createFileRoute("/projects")({
 });
 
 const projects = [
+  {
+    name: "TAFELBERG FURNISHERS",
+    slug: "tafelberg-furnishers",
+    category: "E-Commerce & Team Leadership",
+    description:
+      "Senior E-Commerce Copywriter and Website Administrator. Led copywriting team, grew the online catalogue by 30%+, and managed promotional campaigns across the brand.",
+    tags: ["Copywriting", "Team Leadership", "E-Commerce"],
+    image:
+      "https://res.cloudinary.com/dpylvnjuj/image/upload/w_800,q_auto,f_auto/v1777824340/IMG_6493_eaftjc.jpg",
+    details: {
+      tools: ["WordPress", "Canva", "Notion", "MS Excel"],
+      outcomes: "Grew the online catalogue by over 30%, led a team of copywriters, and shipped recurring promotional campaigns.",
+    },
+  },
+  {
+    name: "BEDS ON LINE",
+    slug: "beds-on-line",
+    category: "E-Commerce & Social Media",
+    description:
+      "E-Commerce Copywriter and Social Media Manager. Created product listings, managed TikTok, Instagram and Facebook accounts, and ran promotional campaigns end to end.",
+    tags: ["Copywriting", "Social Media", "E-Commerce"],
+    image:
+      "https://res.cloudinary.com/dpylvnjuj/image/upload/w_800,q_auto,f_auto/v1777824350/IMG_1421_otcccy.png",
+    details: {
+      tools: ["WordPress", "Canva", "CapCut", "TikTok"],
+      outcomes: "Built consistent social presence and grew product engagement month over month.",
+    },
+  },
+  {
+    name: "SOCIAL MEDIA & DIGITAL MARKETING",
+    slug: "social-media-entrepreneur",
+    category: "Self-Employed Entrepreneur",
+    description:
+      "Built and scaled multiple faceless theme pages from zero to 500k+ followers. Sold one TikTok asset to a US jewellery brand and shipped digital and physical products globally.",
+    tags: ["Audience Growth", "Digital Products", "E-Commerce"],
+    image:
+      "https://res.cloudinary.com/dpylvnjuj/image/upload/w_800,q_auto,f_auto/v1777824011/IMG_7302_llthxh.png",
+    details: {
+      tools: ["TikTok", "Instagram", "Gumroad", "Shopify"],
+      outcomes: "500k+ followers, ~50M annual views, multiple monetised digital and physical products.",
+    },
+  },
   {
     name: "VAULT XI",
     category: "Brand Identity and E-Commerce",
@@ -115,44 +157,55 @@ function ProjectsPage() {
             variant={i % 2 === 0 ? "left" : "right"}
             className="lift grid md:grid-cols-[1fr_1.2fr] gap-8 md:gap-12 pt-12 border-t border-rule rounded-2xl bg-surface/40 p-6 md:p-8 border cursor-pointer"
           >
-            <div
-              className="aspect-[4/5] md:aspect-auto md:min-h-[400px] rounded-lg bg-surface border border-rule overflow-hidden"
-              onClick={() => setSelected(i)}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => e.key === "Enter" && setSelected(i)}
-            >
-              <img
-                src={p.image}
-                alt={p.name}
-                className="h-full w-full object-cover"
-                loading="lazy"
-              />
-            </div>
-
-            <div className="flex flex-col" onClick={() => setSelected(i)} role="button" tabIndex={0} onKeyDown={(e) => e.key === "Enter" && setSelected(i)}>
-              <p className="text-xs uppercase tracking-widest text-accent">
-                {p.category}
-              </p>
-              <h2 className="mt-3 text-4xl md:text-5xl">{p.name}</h2>
-
-              <p className="mt-6 text-ink-soft text-pretty leading-relaxed">
-                {p.description}
-              </p>
-
-              <div className="mt-6 flex flex-wrap gap-2">
-                {p.tags.map((t) => (
-                  <span
-                    key={t}
-                    className="text-xs px-3 py-1 rounded-full border border-rule text-ink-soft"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-
-              <p className="mt-4 text-xs text-accent uppercase tracking-widest">Click to view details →</p>
-            </div>
+            {p.slug ? (
+              <>
+                <Link
+                  to={`/projects/${p.slug}` as any}
+                  className="aspect-[4/5] md:aspect-auto md:min-h-[400px] rounded-lg bg-surface border border-rule overflow-hidden block"
+                >
+                  <img src={p.image} alt={p.name} className="h-full w-full object-cover" loading="lazy" />
+                </Link>
+                <Link
+                  to={`/projects/${p.slug}` as any}
+                  className="flex flex-col"
+                >
+                  <p className="text-xs uppercase tracking-widest text-accent">{p.category}</p>
+                  <h2 className="mt-3 text-4xl md:text-5xl">{p.name}</h2>
+                  <p className="mt-6 text-ink-soft text-pretty leading-relaxed">{p.description}</p>
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {p.tags.map((t) => (
+                      <span key={t} className="text-xs px-3 py-1 rounded-full border border-rule text-ink-soft">{t}</span>
+                    ))}
+                  </div>
+                  <p className="mt-4 inline-flex items-center gap-1 text-xs text-accent uppercase tracking-widest">
+                    View case study <ArrowUpRight className="size-3.5" />
+                  </p>
+                </Link>
+              </>
+            ) : (
+              <>
+                <div
+                  className="aspect-[4/5] md:aspect-auto md:min-h-[400px] rounded-lg bg-surface border border-rule overflow-hidden"
+                  onClick={() => setSelected(i)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => e.key === "Enter" && setSelected(i)}
+                >
+                  <img src={p.image} alt={p.name} className="h-full w-full object-cover" loading="lazy" />
+                </div>
+                <div className="flex flex-col" onClick={() => setSelected(i)} role="button" tabIndex={0} onKeyDown={(e) => e.key === "Enter" && setSelected(i)}>
+                  <p className="text-xs uppercase tracking-widest text-accent">{p.category}</p>
+                  <h2 className="mt-3 text-4xl md:text-5xl">{p.name}</h2>
+                  <p className="mt-6 text-ink-soft text-pretty leading-relaxed">{p.description}</p>
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {p.tags.map((t) => (
+                      <span key={t} className="text-xs px-3 py-1 rounded-full border border-rule text-ink-soft">{t}</span>
+                    ))}
+                  </div>
+                  <p className="mt-4 text-xs text-accent uppercase tracking-widest">Click to view details →</p>
+                </div>
+              </>
+            )}
           </Reveal>
         ))}
       </section>

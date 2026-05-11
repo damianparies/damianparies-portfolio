@@ -15,6 +15,9 @@ import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProjectsTafelbergFurnishersRouteImport } from './routes/projects.tafelberg-furnishers'
+import { Route as ProjectsSocialMediaEntrepreneurRouteImport } from './routes/projects.social-media-entrepreneur'
+import { Route as ProjectsBedsOnLineRouteImport } from './routes/projects.beds-on-line'
 
 const WorkRoute = WorkRouteImport.update({
   id: '/work',
@@ -46,22 +49,45 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProjectsTafelbergFurnishersRoute =
+  ProjectsTafelbergFurnishersRouteImport.update({
+    id: '/tafelberg-furnishers',
+    path: '/tafelberg-furnishers',
+    getParentRoute: () => ProjectsRoute,
+  } as any)
+const ProjectsSocialMediaEntrepreneurRoute =
+  ProjectsSocialMediaEntrepreneurRouteImport.update({
+    id: '/social-media-entrepreneur',
+    path: '/social-media-entrepreneur',
+    getParentRoute: () => ProjectsRoute,
+  } as any)
+const ProjectsBedsOnLineRoute = ProjectsBedsOnLineRouteImport.update({
+  id: '/beds-on-line',
+  path: '/beds-on-line',
+  getParentRoute: () => ProjectsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
-  '/projects': typeof ProjectsRoute
+  '/projects': typeof ProjectsRouteWithChildren
   '/work': typeof WorkRoute
+  '/projects/beds-on-line': typeof ProjectsBedsOnLineRoute
+  '/projects/social-media-entrepreneur': typeof ProjectsSocialMediaEntrepreneurRoute
+  '/projects/tafelberg-furnishers': typeof ProjectsTafelbergFurnishersRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
-  '/projects': typeof ProjectsRoute
+  '/projects': typeof ProjectsRouteWithChildren
   '/work': typeof WorkRoute
+  '/projects/beds-on-line': typeof ProjectsBedsOnLineRoute
+  '/projects/social-media-entrepreneur': typeof ProjectsSocialMediaEntrepreneurRoute
+  '/projects/tafelberg-furnishers': typeof ProjectsTafelbergFurnishersRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -69,14 +95,35 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
-  '/projects': typeof ProjectsRoute
+  '/projects': typeof ProjectsRouteWithChildren
   '/work': typeof WorkRoute
+  '/projects/beds-on-line': typeof ProjectsBedsOnLineRoute
+  '/projects/social-media-entrepreneur': typeof ProjectsSocialMediaEntrepreneurRoute
+  '/projects/tafelberg-furnishers': typeof ProjectsTafelbergFurnishersRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contact' | '/gallery' | '/projects' | '/work'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/gallery'
+    | '/projects'
+    | '/work'
+    | '/projects/beds-on-line'
+    | '/projects/social-media-entrepreneur'
+    | '/projects/tafelberg-furnishers'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/gallery' | '/projects' | '/work'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/gallery'
+    | '/projects'
+    | '/work'
+    | '/projects/beds-on-line'
+    | '/projects/social-media-entrepreneur'
+    | '/projects/tafelberg-furnishers'
   id:
     | '__root__'
     | '/'
@@ -85,6 +132,9 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/projects'
     | '/work'
+    | '/projects/beds-on-line'
+    | '/projects/social-media-entrepreneur'
+    | '/projects/tafelberg-furnishers'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -92,7 +142,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   GalleryRoute: typeof GalleryRoute
-  ProjectsRoute: typeof ProjectsRoute
+  ProjectsRoute: typeof ProjectsRouteWithChildren
   WorkRoute: typeof WorkRoute
 }
 
@@ -140,15 +190,52 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projects/tafelberg-furnishers': {
+      id: '/projects/tafelberg-furnishers'
+      path: '/tafelberg-furnishers'
+      fullPath: '/projects/tafelberg-furnishers'
+      preLoaderRoute: typeof ProjectsTafelbergFurnishersRouteImport
+      parentRoute: typeof ProjectsRoute
+    }
+    '/projects/social-media-entrepreneur': {
+      id: '/projects/social-media-entrepreneur'
+      path: '/social-media-entrepreneur'
+      fullPath: '/projects/social-media-entrepreneur'
+      preLoaderRoute: typeof ProjectsSocialMediaEntrepreneurRouteImport
+      parentRoute: typeof ProjectsRoute
+    }
+    '/projects/beds-on-line': {
+      id: '/projects/beds-on-line'
+      path: '/beds-on-line'
+      fullPath: '/projects/beds-on-line'
+      preLoaderRoute: typeof ProjectsBedsOnLineRouteImport
+      parentRoute: typeof ProjectsRoute
+    }
   }
 }
+
+interface ProjectsRouteChildren {
+  ProjectsBedsOnLineRoute: typeof ProjectsBedsOnLineRoute
+  ProjectsSocialMediaEntrepreneurRoute: typeof ProjectsSocialMediaEntrepreneurRoute
+  ProjectsTafelbergFurnishersRoute: typeof ProjectsTafelbergFurnishersRoute
+}
+
+const ProjectsRouteChildren: ProjectsRouteChildren = {
+  ProjectsBedsOnLineRoute: ProjectsBedsOnLineRoute,
+  ProjectsSocialMediaEntrepreneurRoute: ProjectsSocialMediaEntrepreneurRoute,
+  ProjectsTafelbergFurnishersRoute: ProjectsTafelbergFurnishersRoute,
+}
+
+const ProjectsRouteWithChildren = ProjectsRoute._addFileChildren(
+  ProjectsRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   GalleryRoute: GalleryRoute,
-  ProjectsRoute: ProjectsRoute,
+  ProjectsRoute: ProjectsRouteWithChildren,
   WorkRoute: WorkRoute,
 }
 export const routeTree = rootRouteImport

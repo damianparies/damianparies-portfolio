@@ -32,7 +32,7 @@ export function AnimatedNavbar() {
       <motion.div
         layout
         className={cn(
-          "border border-white/10 bg-background/70 backdrop-blur-2xl shadow-2xl transition-[border-radius] duration-300",
+          "header-glow relative border border-white/10 bg-background/70 backdrop-blur-2xl shadow-2xl transition-[border-radius] duration-300",
           headerShapeClass
         )}
       >
