@@ -3,8 +3,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import CountUp from "react-countup";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Reveal } from "@/components/Reveal";
 
 const chartData = [
@@ -42,7 +41,19 @@ function ChartTooltip({ active, payload, label }: any) {
 
 export function StatsChart() {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+    if (typeof IntersectionObserver === "undefined") { setInView(true); return; }
+    const io = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setInView(true); io.disconnect(); } },
+      { threshold: 0.15 },
+    );
+    io.observe(node);
+    return () => io.disconnect();
+  }, []);
 
   return (
     <section className="container-page py-20" ref={ref}>
@@ -64,8 +75,10 @@ export function StatsChart() {
                   <div key={stat.label} className="rounded-xl border border-rule/60 bg-background/40 p-4">
                     <p className="font-serif text-2xl md:text-3xl text-foreground">
                       {inView ? (
-                        <CountUp end={stat.value} duration={1.5} />
-                      ) : 0}
+                        <CountUp end={stat.value} duration={2} delay={0} />
+                      ) : (
+                        <span>0</span>
+                      )}
                       <span>{stat.suffix}</span>
                     </p>
                     <p className="text-xs text-ink-soft mt-1 uppercase tracking-wider">{stat.label}</p>

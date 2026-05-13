@@ -6,6 +6,7 @@ import { Reveal } from "@/components/Reveal";
 import { LiquidButton } from "@/components/ui/liquid-glass-button";
 import { BrandMarquee } from "@/components/BrandMarquee";
 import { StatsChart } from "@/components/StatsChart";
+import { IPhoneMockup } from "@/components/IPhoneMockup";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -48,13 +49,6 @@ const featured = [
   },
 ];
 
-const phoneHighlights = [
-  { label: "Online Catalogue Growth", value: "30%+" },
-  { label: "Social Followers Built", value: "500k+" },
-  { label: "Total Views Generated", value: "50M+" },
-  { label: "Brands Partnered With", value: "30+" },
-  { label: "Theme Pages Built", value: "20+" },
-];
 
 function Index() {
   const [titleNumber, setTitleNumber] = useState(0);
@@ -189,23 +183,10 @@ function Index() {
           <li className="border-t border-rule" />
         </ul>
 
-        {/* PHONE MOCKUP */}
-        <div className="mt-16 flex justify-center">
-          <Reveal variant="up" delay={200}>
-            <div className="phone-mockup">
-              <div className="phone-notch" />
-              <div className="phone-screen">
-                <p className="text-xs uppercase tracking-widest text-accent mb-4">Work Highlights</p>
-                <div className="space-y-3">
-                  {phoneHighlights.map((h) => (
-                    <div key={h.label} className="flex items-center justify-between border-b border-rule/50 pb-2">
-                      <span className="text-xs text-ink-soft">{h.label}</span>
-                      <span className="font-serif text-lg text-foreground">{h.value}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+        {/* IPHONE MOCKUP */}
+        <div className="mt-20 flex justify-center" style={{ perspective: "1200px", minHeight: 560 }}>
+          <Reveal variant="up" delay={200} className="relative flex justify-center items-center">
+            <IPhoneMockup />
           </Reveal>
         </div>
       </section>

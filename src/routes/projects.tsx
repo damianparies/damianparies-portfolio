@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, Outlet, useRouterState } from "@tanstack/react-router";
 import { useState } from "react";
 import { X, ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
@@ -135,6 +135,10 @@ const projects = [
 
 function ProjectsPage() {
   const [selected, setSelected] = useState<number | null>(null);
+  const { location } = useRouterState();
+  const isIndex = location.pathname === "/projects" || location.pathname === "/projects/";
+
+  if (!isIndex) return <Outlet />;
 
   return (
     <div>

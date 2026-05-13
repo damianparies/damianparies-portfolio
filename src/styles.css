@@ -356,13 +356,21 @@
     a, button, [role="button"] { cursor: none; }
   }
 
-  /* Meteor shower */
+  /* Meteor shower — original LTR */
   @keyframes meteor {
     0%   { transform: rotate(215deg) translateX(0); opacity: 1; }
     70%  { opacity: 1; }
     100% { transform: rotate(215deg) translateX(-500px); opacity: 0; }
   }
   .animate-meteor-effect { animation: meteor 5s linear infinite; }
+
+  /* Meteor shower — RTL (footer) */
+  @keyframes meteorRTL {
+    0%   { transform: rotate(35deg) translateX(0); opacity: 1; }
+    70%  { opacity: 1; }
+    100% { transform: rotate(35deg) translateX(600px); opacity: 0; }
+  }
+  .animate-meteor-rtl { animation: meteorRTL 5s linear infinite; }
 
   /* Header bottom bloom glow */
   .header-glow::after {

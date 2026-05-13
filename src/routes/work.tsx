@@ -21,6 +21,29 @@ export const Route = createFileRoute("/work")({
   component: WorkPage,
 });
 
+const process = [
+  {
+    step: "01",
+    title: "Product Research",
+    body: "Before writing a single word, I learn the product. I review spec sheets, supplier notes, and competitor listings to understand what matters to the buyer and what makes this product different.",
+  },
+  {
+    step: "02",
+    title: "Writing",
+    body: "Clear, direct copy that leads with the benefit and earns the reader's attention. Every description is written to convert, not just to fill a page.",
+  },
+  {
+    step: "03",
+    title: "Optimisation",
+    body: "After the first draft, I review for keyword alignment, readability, and accuracy. Listings are updated as product information changes and SEO performance data comes in.",
+  },
+  {
+    step: "04",
+    title: "Team Coordination",
+    body: "Working with buyers, marketers, and developers to make sure copy is accurate, deadlines are met, and nothing falls through the cracks when a campaign or catalogue update goes live.",
+  },
+];
+
 const services = [
   {
     title: "E-Commerce Copywriting",
@@ -121,6 +144,30 @@ function WorkPage() {
             </Reveal>
           ))}
         </div>
+      </section>
+
+      <section className="container-page py-16 pb-24 border-t border-rule">
+        <Reveal>
+          <p className="text-sm uppercase tracking-widest text-accent mb-3">Approach</p>
+          <h2 className="section-header text-3xl md:text-4xl mb-12">My Process</h2>
+        </Reveal>
+        <ol className="grid md:grid-cols-2 gap-px bg-rule">
+          {process.map((p, i) => (
+            <Reveal
+              as="li"
+              key={p.step}
+              variant={i % 2 === 0 ? "left" : "right"}
+              delay={i * 100}
+              className="bg-background p-8 md:p-10 list-none"
+            >
+              <span className="text-xs font-mono text-accent/60 uppercase tracking-widest">
+                {p.step}
+              </span>
+              <h3 className="font-serif text-2xl md:text-3xl mt-3">{p.title}</h3>
+              <p className="mt-3 text-ink-soft text-pretty leading-relaxed">{p.body}</p>
+            </Reveal>
+          ))}
+        </ol>
       </section>
     </div>
   );
