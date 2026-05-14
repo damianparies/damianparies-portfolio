@@ -58,14 +58,14 @@ const timeline = [
 ];
 
 const skills = [
-  "Team Leadership",
-  "E-Commerce Operations",
   "Copywriting and Editing",
+  "Digital Marketing",
+  "Social Media Management",
   "Website Administration",
-  "Social Media and Content",
-  "Promotional Campaigns",
-  "Workflow Coordination",
-  "Customer-Focused Mindset",
+  "E-Commerce Operations",
+  "Team Leadership",
+  "Promotional Campaign Planning",
+  "Content Creation",
 ];
 
 const stack = [

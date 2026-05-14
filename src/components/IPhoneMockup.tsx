@@ -41,10 +41,10 @@ export function IPhoneMockup() {
         style={{
           transformStyle: "preserve-3d",
           transform: hovered
-            ? "rotateX(0deg) translateY(0px)"
-            : "rotateX(70deg) translateY(40px)",
-          transition: "transform 0.85s cubic-bezier(0.34, 1.2, 0.64, 1)",
-          animation: hovered ? "none" : "iPhoneFloat 6s ease-in-out infinite",
+            ? "rotateX(2deg) rotateY(-3deg) scale(1.02)"
+            : "rotateX(0deg) rotateY(0deg) scale(1)",
+          transition: "transform 0.6s cubic-bezier(0.34, 1.2, 0.64, 1)",
+          animation: "iPhoneFloat 6s ease-in-out infinite",
           width: 260,
           height: 536,
           borderRadius: 44,
@@ -276,8 +276,8 @@ export function IPhoneMockup() {
 
       <style>{`
         @keyframes iPhoneFloat {
-          0%, 100% { transform: rotateX(70deg) translateY(40px); }
-          50%       { transform: rotateX(70deg) translateY(28px); }
+          0%, 100% { transform: translateY(0px); }
+          50%       { transform: translateY(-14px); }
         }
         @keyframes iPhoneGlow {
           0%, 100% { opacity: 0.5; transform: scale(1); }

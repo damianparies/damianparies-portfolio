@@ -7,7 +7,7 @@ export function SiteFooter() {
     <footer className="relative mt-32 overflow-hidden border-t border-rule bg-background">
       {/* Meteors background */}
       <div className="pointer-events-none absolute inset-0 z-0">
-        <Meteors number={25} />
+        <Meteors number={15} />
       </div>
       {/* Subtle ambient glow */}
       <div

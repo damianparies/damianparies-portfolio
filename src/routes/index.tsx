@@ -52,8 +52,13 @@ const featured = [
 
 function Index() {
   const [titleNumber, setTitleNumber] = useState(0);
+  const [roleNumber, setRoleNumber] = useState(0);
   const titles = useMemo(
     () => ["audiences", "brands", "content", "systems", "growth"],
+    []
+  );
+  const roles = useMemo(
+    () => ["Copywriter", "Digital Marketer", "Social Media Manager", "E-Commerce Administrator"],
     []
   );
 
@@ -63,6 +68,13 @@ function Index() {
     }, 2000);
     return () => clearTimeout(timeoutId);
   }, [titleNumber, titles]);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setRoleNumber(roleNumber === roles.length - 1 ? 0 : roleNumber + 1);
+    }, 2500);
+    return () => clearTimeout(timeoutId);
+  }, [roleNumber, roles]);
 
   return (
     <div>
@@ -99,6 +111,27 @@ function Index() {
               <br className="hidden md:block" />
               from scratch.
             </h1>
+            <p className="text-lg md:text-xl text-ink-soft mt-2">
+              <span className="text-foreground font-medium">I work as a </span>
+              <span className="relative inline-flex overflow-hidden" style={{ height: "1.5em", minWidth: 200 }}>
+                <AnimatePresence mode="wait">
+                  {roles.map((role, index) =>
+                    index === roleNumber ? (
+                      <motion.span
+                        key={role}
+                        className="absolute text-accent font-serif italic"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.4, ease: "easeInOut" }}
+                      >
+                        {role}
+                      </motion.span>
+                    ) : null
+                  )}
+                </AnimatePresence>
+              </span>
+            </p>
             <p className="max-w-2xl mx-auto text-lg text-ink-soft text-pretty fade-in-up">
               I'm Damian Paries, a Senior E-Commerce Copywriter and Website Administrator based in Cape Town. I lead catalogue operations at Tafelberg Furnishers, manage a team of copywriters, and keep the digital side of a growing retail brand running cleanly. Before stepping into this role, I spent several years building social media audiences entirely from scratch, reaching over 500 000 followers and 50 million views across different niches.
             </p>
@@ -151,6 +184,29 @@ function Index() {
 
       {/* STATS CHART */}
       <StatsChart />
+
+      {/* AVAILABLE FOR */}
+      <section className="container-page py-16 border-t border-rule">
+        <Reveal>
+          <p className="text-sm uppercase tracking-widest text-accent mb-3">Available For</p>
+          <h2 className="section-header text-3xl md:text-4xl mb-10">Disciplines I cover.</h2>
+        </Reveal>
+        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+          {[
+            { title: "E-Commerce Copywriting", desc: "Product descriptions and catalogue content that convert." },
+            { title: "Digital Marketing", desc: "Campaign planning, performance tracking, and cross-channel strategy." },
+            { title: "Social Media Management", desc: "Content calendars, organic growth, and brand presence." },
+            { title: "Website Administration", desc: "Backend management, error logging, and UX improvement." },
+          ].map((card, i) => (
+            <Reveal key={card.title} variant="scale" delay={i * 80}>
+              <div className="rounded-2xl border border-rule bg-surface/50 backdrop-blur-sm p-6 h-full">
+                <h3 className="font-serif text-xl text-foreground">{card.title}</h3>
+                <p className="mt-2 text-sm text-ink-soft leading-relaxed">{card.desc}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
 
       {/* FEATURED INDEX */}
       <section className="container-page py-20 md:py-32">
