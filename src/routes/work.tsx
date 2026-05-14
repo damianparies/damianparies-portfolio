@@ -58,16 +58,12 @@ const services = [
     body: "Building and managing brand social media accounts across TikTok, Instagram, and Facebook. Creating content calendars, scheduling posts, and executing organic growth strategies that turn zero-follower accounts into engaged communities.",
   },
   {
-    title: "Digital Marketing",
+    title: "Digital Marketing and Campaign Planning",
     body: "Planning and executing promotional campaigns across pricing, catalogue, and web channels. Tracking performance metrics, optimising content for each platform, and coordinating cross-channel content strategy to maximise reach and conversions.",
   },
   {
     title: "Team Leadership and Workflow",
     body: "Leading a copywriting team by setting daily priorities, managing deadlines, coordinating with buying and marketing teams, and keeping catalogue output accurate and on time.",
-  },
-  {
-    title: "Campaign and Promotional Planning",
-    body: "Planning and executing promotional campaigns across pricing, catalogue, and web, working across multiple departments to get things live and running smoothly.",
   },
 ];
 

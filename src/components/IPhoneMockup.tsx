@@ -191,8 +191,8 @@ export function IPhoneMockup() {
                     padding: "10px 12px",
                     position: "relative",
                     overflow: "hidden",
-                    opacity: hovered ? 1 : 0,
-                    transform: hovered ? "translateY(0)" : "translateY(10px)",
+                    opacity: 1,
+                    transform: "translateY(0)",
                     transition: `opacity 0.5s ease ${i * 80 + 200}ms, transform 0.5s ease ${i * 80 + 200}ms`,
                   }}
                 >
@@ -247,7 +247,7 @@ export function IPhoneMockup() {
                         borderRadius: 2,
                         background:
                           "linear-gradient(90deg,rgba(56,140,255,0.6),rgba(100,170,255,0.2))",
-                        width: hovered ? `${60 + i * 8}%` : "0%",
+                        width: `${60 + i * 8}%`,
                         transition: `width 1.2s ease ${i * 100 + 400}ms`,
                       }}
                     />

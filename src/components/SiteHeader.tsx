@@ -15,7 +15,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 header-glass border-b border-white/10 header-glow">
+    <header className="fixed top-0 left-0 right-0 z-40 header-glass header-glow">
       <div className="container-page flex items-center justify-between h-16">
         <Link
           to="/"
